@@ -1,0 +1,3124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSI 402 — Complete Study Guide</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@700;800;900&display=swap');
+
+:root {
+  --c1: #1a56db;   /* blue – Ch1 */
+  --c2: #0e9f6e;   /* green – Ch2 */
+  --c3: #9f580a;   /* amber – Ch3 */
+  --c4: #7e3af2;   /* purple – Ch4 */
+  --c5: #c81e1e;   /* red – Calculations */
+  --c6: #1c64f2;   /* blue2 – Prev Exams */
+  --memo: #fffbeb;
+  --memo-border: #f59e0b;
+  --hot-bg: #fff1f2;
+  --hot-border: #e11d48;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #111827;
+  background: #fff;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 30px 36px;
+}
+
+/* ── COVER ── */
+.cover {
+  text-align: center;
+  padding: 60px 20px 50px;
+  border-bottom: 3px double #111;
+  margin-bottom: 40px;
+}
+.cover-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.cover-sub {
+  font-size: 16px;
+  color: #374151;
+  margin-bottom: 6px;
+}
+.cover-warn {
+  display: inline-block;
+  margin-top: 16px;
+  background: #111;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  padding: 8px 20px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+/* ── TABLE OF CONTENTS ── */
+.toc {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-bottom: 40px;
+}
+.toc-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  color: #111;
+}
+.toc-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px dotted #d1d5db;
+  font-size: 14px;
+}
+.toc-item:last-child { border: none; }
+.toc-num { color: #6b7280; font-size: 12px; min-width: 80px; }
+
+/* ── SECTION HEADER ── */
+.section-header {
+  border-radius: 6px;
+  padding: 14px 20px;
+  margin: 50px 0 28px;
+  color: white;
+  font-family: 'Outfit', sans-serif;
+}
+.section-header h2 {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+.section-header p {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-top: 2px;
+  font-family: 'Source Serif 4', serif;
+}
+.sec-ch1 { background: var(--c1); }
+.sec-ch2 { background: var(--c2); }
+.sec-ch3 { background: var(--c3); }
+.sec-ch4 { background: var(--c4); }
+.sec-calc { background: var(--c5); }
+.sec-exam { background: #111827; }
+
+/* ── QUESTION BLOCK ── */
+.q-block {
+  margin-bottom: 32px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.q-num-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.q-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 3px 10px;
+  border-radius: 99px;
+  color: white;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+.hot-tag {
+  background: var(--hot-border);
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 2px 9px;
+  border-radius: 99px;
+  letter-spacing: 0.5px;
+}
+
+.q-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  padding-left: 4px;
+  border-left: 3px solid #e5e7eb;
+  padding-left: 14px;
+}
+
+.answer {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 10px;
+  font-size: 14.5px;
+  line-height: 1.8;
+}
+.answer p { margin-bottom: 8px; }
+.answer p:last-child { margin-bottom: 0; }
+.answer ul, .answer ol {
+  padding-left: 22px;
+  margin: 6px 0;
+}
+.answer li { margin-bottom: 4px; }
+.answer strong { color: #111; }
+.answer .label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #6b7280;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.code-box {
+  background: #111827;
+  color: #e5e7eb;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  line-height: 1.9;
+  padding: 14px 16px;
+  border-radius: 6px;
+  margin: 10px 0;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+table.answer-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 8px 0;
+}
+table.answer-table th {
+  background: #f3f4f6;
+  padding: 7px 10px;
+  text-align: left;
+  font-weight: 700;
+  border: 1px solid #e5e7eb;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+table.answer-table td {
+  padding: 7px 10px;
+  border: 1px solid #e5e7eb;
+  vertical-align: top;
+}
+table.answer-table tr:nth-child(even) td { background: #f9fafb; }
+
+/* ── MNEMONIC BOX ── */
+.memo {
+  background: var(--memo);
+  border: 1.5px solid var(--memo-border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.memo-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #92400e;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.memo strong { color: #78350f; }
+.memo .big-mnemonic {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: #92400e;
+  display: block;
+  margin: 4px 0;
+}
+
+/* ── HOT SPOT ── */
+.hot-box {
+  background: var(--hot-bg);
+  border: 1px solid #fecdd3;
+  border-left: 4px solid var(--hot-border);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #881337;
+  margin: 8px 0;
+}
+
+/* ── DIVIDER ── */
+hr.section-rule {
+  border: none;
+  border-top: 2px solid #111;
+  margin: 50px 0;
+}
+
+/* ── ANSWER COMPARISON ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 8px 0;
+}
+.col-box {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 13.5px;
+}
+.col-box .col-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+/* ── PAGE BREAK HINTS ── */
+@media print {
+  body { font-size: 13px; padding: 20px 28px; }
+  .section-header { page-break-before: always; }
+  .q-block { page-break-inside: avoid; }
+  .cover { page-break-after: always; }
+  .toc { page-break-after: always; }
+  a { text-decoration: none; color: inherit; }
+}
+
+/* ── NUMBERING COUNTER ── */
+.q-number {
+  font-family: 'Outfit', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: #e5e7eb;
+  min-width: 44px;
+  line-height: 1;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════ COVER ══════════════ -->
+<div class="cover">
+  <div class="cover-title">CSI 402 — Operating Systems<br>Complete Study Guide</div>
+  <div class="cover-sub">Prof. Charbel Boustany · AUST Zahle · Spring 2025–26</div>
+  <div class="cover-sub">Stallings, <em>OS: Internals and Design Principles</em>, 8th Ed.</div>
+  <div class="cover-sub" style="margin-top:10px;font-weight:700;">Chapters 1 · 2 · 3 · 4 + Lectures 8 &amp; 9 + All Previous Exam Questions</div>
+  <div class="cover-sub" style="color:#6b7280;font-size:13px;margin-top:8px;">Each question includes a full answer + memorization technique</div>
+  <div class="cover-warn">⚡ MIDTERM: MARCH 27, 2026 — 95 QUESTIONS</div>
+</div>
+
+<!-- ══════════════ TABLE OF CONTENTS ══════════════ -->
+<div class="toc">
+  <div class="toc-title">Table of Contents</div>
+  <div class="toc-item"><span>Section 1 — Chapter 1: Computer System Overview</span><span class="toc-num">Q1 – Q22</span></div>
+  <div class="toc-item"><span>Section 2 — Chapter 2: Operating System Overview</span><span class="toc-num">Q23 – Q38</span></div>
+  <div class="toc-item"><span>Section 3 — Chapter 3: Process Description &amp; Control</span><span class="toc-num">Q39 – Q58</span></div>
+  <div class="toc-item"><span>Section 4 — Chapter 4: Threads, SMP &amp; Microkernels</span><span class="toc-num">Q59 – Q73</span></div>
+  <div class="toc-item"><span>Section 5 — Calculations Bank (CPU%, Batch, Concurrency, Flags)</span><span class="toc-num">Q74 – Q80</span></div>
+  <div class="toc-item"><span>Section 6 — All Previous Exam Questions (Exact Wording)</span><span class="toc-num">Q81 – Q95</span></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 1 — CHAPTER 1
+═══════════════════════════════════════════════════════════ -->
+
+<div class="section-header sec-ch1">
+  <h2>Section 1 — Chapter 1: Computer System Overview</h2>
+  <p>Registers · Flags · Fetch-Decode-Execute · Memory Hierarchy · Cache · I/O · Interrupts</p>
+</div>
+
+<!-- Q1 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">01</span>
+    <span class="q-badge" style="background:var(--c1)">CHAPTER 1</span>
+  </div>
+  <div class="q-text">What are the four basic elements of a computer system?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <ol>
+      <li><strong>Processor (CPU)</strong> — Controls the operation of the computer; performs data processing. The brain.</li>
+      <li><strong>Main Memory (RAM)</strong> — Stores data and programs. Volatile — contents lost when power is off. Also called real memory or primary memory.</li>
+      <li><strong>I/O Modules</strong> — Move data between the computer and the external environment (disk, terminal, printer, network, etc.).</li>
+      <li><strong>System Bus</strong> — The communication pathway between processor, main memory, and I/O modules. Carries address, data, and control signals.</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">P · M · I · B</span>
+    <strong>P</strong>rocessor · <strong>M</strong>ain Memory · <strong>I</strong>/O Modules · <strong>B</strong>us<br>
+    "Please Make It Boot"
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">02</span>
+    <span class="q-badge" style="background:var(--c1)">REGISTER</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is the MAR (Memory Address Register)? What does it store?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>The <strong>Memory Address Register (MAR)</strong> specifies the <strong>address of the memory location</strong> to be read from or written to in the next memory operation.</p>
+    <p>When the CPU wants to read or write memory, it first places the target address in the MAR. The memory system then uses this address to find the correct location.</p>
+    <div class="hot-box">🔥 Exact exam MCQ: "The address of a memory location will be placed, when read, in:" → Answer: MAR</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>MAR = ADdress Register</strong><br>
+    The "A" in MAR stands for Address. MAR = <em>where</em> to go in memory.<br>
+    Think: "MAR marks the spot" (like X marks the spot on a map — it's a location/address).
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">03</span>
+    <span class="q-badge" style="background:var(--c1)">REGISTER</span>
+  </div>
+  <div class="q-text">What is the MBR (Memory Buffer Register)? How is it different from MAR?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>The <strong>Memory Buffer Register (MBR)</strong> contains the <strong>data</strong> that was most recently read from memory, or the data that is about to be written to memory.</p>
+    <table class="answer-table">
+      <tr><th>Register</th><th>Holds</th><th>Answers</th></tr>
+      <tr><td><strong>MAR</strong></td><td>An ADDRESS (a location number)</td><td><em>WHERE</em> in memory</td></tr>
+      <tr><td><strong>MBR</strong></td><td>DATA (the actual value at that address)</td><td><em>WHAT</em> is at that location</td></tr>
+    </table>
+    <p>Also called MDR (Memory Data Register) in some textbooks.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>MAR = Address · MBR = Data</strong><br>
+    MAR is the <em>map</em> (where to go). MBR is the <em>package</em> (what you pick up or drop off).<br>
+    MBR = "Memory <strong>B</strong>ag" — it carries the data in and out.
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">04</span>
+    <span class="q-badge" style="background:var(--c1)">REGISTER</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is the PC (Program Counter)? What does it store?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>The <strong>Program Counter (PC)</strong> holds the <strong>address of the NEXT instruction</strong> to be fetched and executed.</p>
+    <p>After the CPU fetches an instruction from address N, the PC is <strong>immediately incremented to N+1</strong> — it always points ahead to the next instruction. The currently executing instruction is in the IR, not the PC.</p>
+    <div class="hot-box">🔥 Exact exam MCQ: "The address of the next instruction to be executed by the current process is provided by:" → Answer: Program Counter</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>PC = Points Ahead (NEXT instruction)</strong><br>
+    Think: PC is a <em>finger pointing forward</em> in a book — it always points to the NEXT page, not the one you're reading now.<br>
+    PC = "Please Continue" (continue from this address next)
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">05</span>
+    <span class="q-badge" style="background:var(--c1)">REGISTER</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is the IR (Instruction Register)? How is it different from PC?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>The <strong>Instruction Register (IR)</strong> holds the <strong>most recently fetched instruction</strong> — the one currently being decoded and executed by the CPU.</p>
+    <table class="answer-table">
+      <tr><th>Register</th><th>Holds</th></tr>
+      <tr><td><strong>PC</strong></td><td>Address of the NEXT instruction (future)</td></tr>
+      <tr><td><strong>IR</strong></td><td>The CURRENT instruction being executed (present)</td></tr>
+    </table>
+    <p>In execution trace problems, after fetching instruction at address N: PC = N+1, IR = instruction at address N.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>IR = "I'm Running this right now"</strong><br>
+    IR = current. PC = next. They are NEVER the same thing.<br>
+    IR is the TV screen (what's showing NOW). PC is the TV guide (what's coming NEXT).
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">06</span>
+    <span class="q-badge" style="background:var(--c1)">REGISTER</span>
+  </div>
+  <div class="q-text">What is the PSW (Program Status Word)?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>The <strong>Program Status Word (PSW)</strong> is a register that contains <strong>status information</strong> about the current process, including:</p>
+    <ul>
+      <li>Condition codes / flags (OF, SF, ZF, CF, etc.)</li>
+      <li>Interrupt enable/disable bits</li>
+      <li>Processor mode (user vs. kernel)</li>
+      <li>Other control bits</li>
+    </ul>
+    <p>On Intel x86/Pentium processors, the PSW is called the <strong>EFLAGS register</strong>.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>PSW = "Process Status Watcher"</strong> — it watches and records what just happened (overflow? zero? negative?)<br>
+    Called EFLAGS on x86. Just remember: PSW = FLAGS register.
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">07</span>
+    <span class="q-badge" style="background:var(--c1)">REGISTER</span>
+  </div>
+  <div class="q-text">What is the AC (Accumulator) register?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>The <strong>Accumulator (AC)</strong> is a CPU register used to store <strong>intermediate results of arithmetic and logic operations</strong> performed by the ALU (Arithmetic Logic Unit).</p>
+    <p>In execution traces, after an ADD operation, the result is stored in the AC. It is the "scratch pad" for calculations.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>AC = ACcumulator = Calculator</strong><br>
+    Think of it as a calculator display — it shows the running result of math operations.
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">08</span>
+    <span class="q-badge" style="background:var(--c1)">REGISTER</span>
+  </div>
+  <div class="q-text">What are the SP, I/O AR, and I/O BR registers?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <table class="answer-table">
+      <tr><th>Register</th><th>Full Name</th><th>Stores</th></tr>
+      <tr><td><strong>SP</strong></td><td>Stack Pointer</td><td>Address of the TOP of the current process stack. Used for procedure calls, interrupts.</td></tr>
+      <tr><td><strong>I/O AR</strong></td><td>I/O Address Register</td><td>Address of the I/O device (or port) for the current I/O operation.</td></tr>
+      <tr><td><strong>I/O BR</strong></td><td>I/O Buffer Register</td><td>Temporary buffer for data exchange between the I/O module and the processor.</td></tr>
+    </table>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>SP = Stack Pointer → top of stack</strong> (LIFO structure — last in, first out)<br>
+    <strong>I/O AR ≈ MAR</strong> (but for I/O devices) · <strong>I/O BR ≈ MBR</strong> (but for I/O devices)<br>
+    Think: I/O versions of MAR and MBR — same concept, different world.
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">09</span>
+    <span class="q-badge" style="background:var(--c1)">ALL REGISTERS</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">Complete Register Reference — what does each CPU register store? (Master table)</div>
+  <div class="answer">
+    <table class="answer-table">
+      <tr><th>Register</th><th>Full Name</th><th>Stores / Purpose</th></tr>
+      <tr><td><strong>MAR</strong></td><td>Memory Address Register</td><td>Address (location) in memory for next read/write</td></tr>
+      <tr><td><strong>MBR</strong></td><td>Memory Buffer Register</td><td>Data fetched from / about to be written to memory</td></tr>
+      <tr><td><strong>PC</strong></td><td>Program Counter</td><td>Address of the <strong>NEXT</strong> instruction to be fetched</td></tr>
+      <tr><td><strong>IR</strong></td><td>Instruction Register</td><td><strong>CURRENT</strong> instruction being decoded/executed</td></tr>
+      <tr><td><strong>PSW</strong></td><td>Program Status Word</td><td>Flags (OF, SF, ZF), mode bits, interrupt flags — called EFLAGS on x86</td></tr>
+      <tr><td><strong>AC</strong></td><td>Accumulator</td><td>Temporary storage for ALU results</td></tr>
+      <tr><td><strong>SP</strong></td><td>Stack Pointer</td><td>Address of top of process stack</td></tr>
+      <tr><td><strong>I/O AR</strong></td><td>I/O Address Register</td><td>Address of the I/O device for current operation</td></tr>
+      <tr><td><strong>I/O BR</strong></td><td>I/O Buffer Register</td><td>Data buffer between I/O module and processor</td></tr>
+    </table>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize — The Full Register Sentence</div>
+    <strong>"My Mother Put Important Papers Away In Boxes Safely"</strong><br>
+    <strong>M</strong>AR · <strong>M</strong>BR · <strong>P</strong>C · <strong>I</strong>R · <strong>P</strong>SW · <strong>A</strong>C · <strong>I</strong>/O AR · <strong>B</strong>uffer(I/O BR) · <strong>S</strong>P
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">10</span>
+    <span class="q-badge" style="background:var(--c1)">CYCLE</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What are the steps of the Fetch-Decode-Execute (Instruction) Cycle?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <ol>
+      <li><strong>FETCH</strong> — Copy the instruction at address [PC] into the MAR → MBR → IR</li>
+      <li><strong>PC+1</strong> — Immediately increment PC so it points to the next instruction</li>
+      <li><strong>DECODE</strong> — CPU reads/interprets the instruction currently in IR (what operation? what operands?)</li>
+      <li><strong>EXECUTE</strong> — Perform the operation. May involve reading/writing memory (MAR, MBR), arithmetic (AC), or I/O</li>
+      <li><strong>INTERRUPT CHECK</strong> — After execute, check: is there a pending interrupt? If yes, handle it; if no, go back to step 1</li>
+    </ol>
+    <p><strong>Key register flow during Fetch:</strong> PC → MAR → (memory read) → MBR → IR, then PC = PC + 1</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">F · P · D · E · I</span>
+    <strong>F</strong>etch · <strong>P</strong>C+1 · <strong>D</strong>ecode · <strong>E</strong>xecute · <strong>I</strong>nterrupt-check<br>
+    "For Pete's Sake Do It!" — and never forget the interrupt check at the end!
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">11</span>
+    <span class="q-badge" style="background:var(--c1)">FLAGS</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is the OF (Overflow Flag)? When is it set to 1?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>The <strong>Overflow Flag (OF)</strong> is set to 1 when the result of an arithmetic operation has a <strong>different sign than the operands</strong> — indicating that the result overflowed the representable range.</p>
+    <p><strong>Two cases for OF = 1:</strong></p>
+    <ul>
+      <li>Both operands are <strong>POSITIVE</strong> but result is <strong>NEGATIVE</strong> (e.g., +6 + +3 = -7 in 4-bit)</li>
+      <li>Both operands are <strong>NEGATIVE</strong> but result is <strong>POSITIVE</strong></li>
+    </ul>
+    <p><strong>OF = 0</strong> when operands have different signs (one positive, one negative) — no overflow possible in that case.</p>
+    <div class="hot-box">🔥 Rule: OF = 1 when operands have the SAME sign but the result has a DIFFERENT sign.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>OF = "Same goes in, Different comes out"</strong><br>
+    Both positive → result negative = OVERFLOW (OF=1)<br>
+    Both negative → result positive = OVERFLOW (OF=1)<br>
+    One of each → can NEVER overflow (OF=0 always in this case)
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">12</span>
+    <span class="q-badge" style="background:var(--c1)">FLAGS</span>
+  </div>
+  <div class="q-text">What is the SF (Sign Flag)? When is it set to 1?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>The <strong>Sign Flag (SF)</strong> reflects the <strong>sign of the result</strong>:</p>
+    <ul>
+      <li><strong>SF = 1</strong> → result is NEGATIVE (the most significant bit / MSB of the result = 1)</li>
+      <li><strong>SF = 0</strong> → result is POSITIVE or zero (MSB = 0)</li>
+    </ul>
+    <p>In 2's complement: MSB = 1 means negative, MSB = 0 means positive.</p>
+    <p>Example: result = <strong>1001</strong> → MSB = 1 → SF = 1 (negative)</p>
+    <p>Example: result = <strong>0011</strong> → MSB = 0 → SF = 0 (positive)</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>SF = Sign of result = MSB of result</strong><br>
+    SF = 1 means result starts with 1 = it's negative.<br>
+    SF = Sign → look at the FIRST (leftmost) bit of the result.
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">13</span>
+    <span class="q-badge" style="background:var(--c1)">FLAGS</span>
+  </div>
+  <div class="q-text">What is the ZF (Zero Flag)? When is it set to 1?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>The <strong>Zero Flag (ZF)</strong> is set to 1 when the result of an operation equals <strong>exactly zero</strong> (all bits = 0).</p>
+    <ul>
+      <li><strong>ZF = 1</strong> → result = 0000 (all zeros)</li>
+      <li><strong>ZF = 0</strong> → result ≠ 0 (any non-zero value)</li>
+    </ul>
+    <p>Example: result = <strong>0000</strong> → ZF = 1</p>
+    <p>Example: result = <strong>1001</strong> → ZF = 0</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>ZF = Zero? = all bits are 0</strong><br>
+    ZF = 1 only when result = 0000. That's it. Dead simple.
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">14</span>
+    <span class="q-badge" style="background:var(--c1)">FLAGS</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">How do you solve a flag problem (OF, SF, ZF)? Step-by-step method with example.</div>
+  <div class="answer">
+    <span class="label">Step-by-Step Method</span>
+    <ol>
+      <li>Perform the binary addition/subtraction normally</li>
+      <li><strong>Determine OF:</strong> Do both operands have the same sign (both MSB=0 or both MSB=1)?
+        <ul><li>If YES and result has different sign → OF = 1</li>
+            <li>If NO (different signs) → OF = 0</li>
+            <li>If YES and result has same sign → OF = 0</li></ul></li>
+      <li><strong>Determine SF:</strong> Look at MSB (leftmost bit) of the RESULT.
+        <ul><li>MSB = 1 → SF = 1 (negative)</li>
+            <li>MSB = 0 → SF = 0 (positive)</li></ul></li>
+      <li><strong>Determine ZF:</strong> Is the result all zeros?
+        <ul><li>0000 → ZF = 1</li>
+            <li>anything else → ZF = 0</li></ul></li>
+    </ol>
+    <span class="label" style="margin-top:12px;">Worked Example (from actual exam): 0110 + 0011</span>
+    <div class="code-box">  0110  (= +6, MSB=0, positive)
++ 0011  (= +3, MSB=0, positive)
+──────
+  1001  (result)
+
+OF: Both operands positive (MSB=0 for both)
+    Result MSB = 1 (negative) → SIGN CHANGED → OF = 1
+
+SF: Result MSB = 1 → SF = 1 (result is negative)
+
+ZF: Result = 1001 ≠ 0000 → ZF = 0
+
+ANSWER: OF=1, SF=1, ZF=0</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize — Flag Check Order</div>
+    <span class="big-mnemonic">OF · SF · ZF</span>
+    <strong>OF</strong> = check operand signs vs result sign (same → different = overflow)<br>
+    <strong>SF</strong> = look at MSB of result (1=negative)<br>
+    <strong>ZF</strong> = is result all zeros? (0000 → yes)<br>
+    "Old Soldiers Zero in"
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">15</span>
+    <span class="q-badge" style="background:var(--c1)">MEMORY</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is the Memory Hierarchy? List the levels from fastest to slowest, with characteristics.</div>
+  <div class="answer">
+    <table class="answer-table">
+      <tr><th>#</th><th>Level</th><th>Speed</th><th>Size</th><th>Cost</th><th>Notes</th></tr>
+      <tr><td>1</td><td><strong>CPU Registers</strong></td><td>~1 ns</td><td>Bytes (very small)</td><td>Highest</td><td>Inside CPU</td></tr>
+      <tr><td>2</td><td><strong>Cache (L1/L2/L3)</strong></td><td>~2–10 ns</td><td>KB–MB</td><td>High</td><td>Invisible to OS; managed by hardware</td></tr>
+      <tr><td>3</td><td><strong>Main Memory (RAM)</strong></td><td>~60 ns</td><td>GB</td><td>Medium</td><td>Volatile; OS manages this</td></tr>
+      <tr><td>4</td><td><strong>Secondary Storage (Disk)</strong></td><td>~3–10 ms</td><td>TB</td><td>Low</td><td>Non-volatile; virtual memory lives here</td></tr>
+      <tr><td>5</td><td><strong>Tertiary (Tape/Optical)</strong></td><td>Seconds</td><td>Massive</td><td>Lowest</td><td>Archival use</td></tr>
+    </table>
+    <p><strong>Key tradeoff:</strong> As you go down the hierarchy → <em>slower</em>, <em>larger</em>, <em>cheaper</em>. Going up → <em>faster</em>, <em>smaller</em>, <em>more expensive</em>.</p>
+    <div class="hot-box">🔥 Cache is managed entirely by HARDWARE — it is INVISIBLE to the OS and to the programmer.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">R · C · M · S · T</span>
+    <strong>"Really Cool Machines Store Things"</strong><br>
+    <strong>R</strong>egisters · <strong>C</strong>ache · <strong>M</strong>ain Memory · <strong>S</strong>econdary Storage · <strong>T</strong>ertiary<br>
+    Going down: Slower, Bigger, Cheaper. Going up: Faster, Smaller, Pricier.
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">16</span>
+    <span class="q-badge" style="background:var(--c1)">CACHE</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is Cache Memory? Who manages it? What are its 6 design parameters?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>Cache memory</strong> is a small, fast buffer between the CPU and main memory. It stores copies of frequently used data/instructions so the CPU doesn't have to wait for slow main RAM every time.</p>
+    <p><strong>Managed by: HARDWARE only</strong> — completely invisible to the OS and to the programmer. The OS cannot see, control, or directly interact with cache.</p>
+    <p><strong>Transfer units:</strong></p>
+    <ul>
+      <li>CPU ↔ Cache: <strong>word transfer</strong> (one word at a time)</li>
+      <li>Cache ↔ Main Memory: <strong>block transfer</strong> (a block of words at a time)</li>
+    </ul>
+    <span class="label" style="margin-top:12px;">6 Cache Design Parameters</span>
+    <ol>
+      <li><strong>Cache size</strong> — How much data it can hold</li>
+      <li><strong>Block size</strong> — How much data is transferred from main memory at once (cache line)</li>
+      <li><strong>Mapping function</strong> — How memory blocks map to cache slots (direct, set-associative, fully associative)</li>
+      <li><strong>Replacement algorithm</strong> — Which block to evict when cache is full (LRU = Least Recently Used is most common)</li>
+      <li><strong>Write policy</strong> — Write-through (write to both cache and RAM simultaneously) vs. Write-back (write to cache only, flush to RAM later)</li>
+      <li><strong>Number of cache levels</strong> — L1 (fastest, smallest) → L2 → L3</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize — Cache Parameters</div>
+    <span class="big-mnemonic">S · B · M · R · W · N</span>
+    <strong>S</strong>ize · <strong>B</strong>lock size · <strong>M</strong>apping · <strong>R</strong>eplacement (LRU) · <strong>W</strong>rite policy · <strong>N</strong>umber of levels<br>
+    "Some Big Machines Replace Worn Numbers"<br>
+    Also remember: Cache = HARDWARE managed. OS has NO access to it.
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">17</span>
+    <span class="q-badge" style="background:var(--c1)">I/O</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What are the three I/O techniques? Compare them.</div>
+  <div class="answer">
+    <table class="answer-table">
+      <tr><th>Technique</th><th>How it works</th><th>CPU busy?</th><th>Best for</th></tr>
+      <tr>
+        <td><strong>1. Programmed I/O</strong></td>
+        <td>CPU issues I/O command and then continuously POLLS (checks in a loop) whether the I/O device is done. CPU cannot do anything else — it busy-waits.</td>
+        <td>YES — 100%</td>
+        <td>Simple, slow devices; fine for tiny systems</td>
+      </tr>
+      <tr>
+        <td><strong>2. Interrupt-Driven I/O</strong></td>
+        <td>CPU issues I/O command, then continues executing other code. When the I/O device finishes, it sends an INTERRUPT to the CPU. CPU stops, handles the interrupt, resumes.</td>
+        <td>Partially free</td>
+        <td>Most common modern I/O operations</td>
+      </tr>
+      <tr>
+        <td><strong>3. Direct Memory Access (DMA)</strong></td>
+        <td>CPU sets up a DMA controller (gives it: source, destination, size), then walks away. DMA handles the entire data transfer directly between I/O device and RAM. CPU is only involved at the START (setup) and END (interrupt when done).</td>
+        <td>Mostly FREE</td>
+        <td>Large, fast transfers (disks, network)</td>
+      </tr>
+    </table>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">P · I · D</span>
+    <strong>P</strong>rogrammed (CPU waits, does nothing) → <strong>I</strong>nterrupt (CPU works, gets interrupted when done) → <strong>D</strong>MA (CPU barely involved, DMA does it all)<br>
+    PID = Progressive Independence. Each step frees the CPU more.
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">18</span>
+    <span class="q-badge" style="background:var(--c1)">INTERRUPTS</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What are the four classes of interrupts?</div>
+  <div class="answer">
+    <table class="answer-table">
+      <tr><th>Class</th><th>Cause</th><th>Example</th></tr>
+      <tr><td><strong>1. Program</strong></td><td>Generated by some condition that occurs as a result of an instruction execution</td><td>Arithmetic overflow, division by zero, illegal machine instruction, reference outside user's memory space</td></tr>
+      <tr><td><strong>2. Timer</strong></td><td>Generated by a timer within the processor</td><td>Time quantum (time slice) has expired → preempt current process</td></tr>
+      <tr><td><strong>3. I/O</strong></td><td>Generated by an I/O controller</td><td>I/O operation completed, I/O error occurred</td></tr>
+      <tr><td><strong>4. Hardware Failure</strong></td><td>Generated by hardware failure</td><td>Power failure, memory parity error</td></tr>
+    </table>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">P · T · I · H</span>
+    <strong>P</strong>rogram · <strong>T</strong>imer · <strong>I</strong>/O · <strong>H</strong>ardware Failure<br>
+    "Please Tell It Here" or "Programs Time I/O Hardware"
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">19</span>
+    <span class="q-badge" style="background:var(--c1)">INTERRUPTS</span>
+  </div>
+  <div class="q-text">What happens during the Interrupt Cycle? How are multiple interrupts handled?</div>
+  <div class="answer">
+    <span class="label">Interrupt Cycle (added to Fetch-Decode-Execute)</span>
+    <p>After every instruction executes, the CPU checks: <em>Is there a pending interrupt?</em></p>
+    <ul>
+      <li>If <strong>NO</strong>: fetch next instruction (normal)</li>
+      <li>If <strong>YES</strong>:
+        <ol>
+          <li>Suspend execution of current program (save PC and state)</li>
+          <li>Load the address of the Interrupt Service Routine (ISR) into the PC</li>
+          <li>Execute the ISR (handle the interrupt)</li>
+          <li>Restore the saved state (resume the interrupted program)</li>
+        </ol>
+      </li>
+    </ul>
+    <span class="label" style="margin-top:12px;">Multiple Interrupt Handling — Two Methods</span>
+    <div class="two-col">
+      <div class="col-box">
+        <div class="col-title">Method 1: Disable Interrupts</div>
+        While handling one interrupt, all other interrupts are disabled (ignored/queued). Handled strictly sequentially. Simple but can miss urgent interrupts.
+      </div>
+      <div class="col-box">
+        <div class="col-title">Method 2: Priority Scheme</div>
+        Each interrupt has a priority level. A higher-priority interrupt CAN interrupt a lower-priority interrupt handler. Allows nested interrupt handling.
+      </div>
+    </div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Interrupt Cycle = "Save, Jump, Handle, Restore"</strong><br>
+    1. Save current state → 2. Jump to ISR → 3. Handle interrupt → 4. Restore and continue<br>
+    Multiple interrupts: either DISABLE (queue) or PRIORITY (nest). Priority = more flexible.
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">20</span>
+    <span class="q-badge" style="background:var(--c1)">EXECUTION TRACE</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">How do you trace a machine language program (PC, AC, IR values after each step)?</div>
+  <div class="answer">
+    <span class="label">Method</span>
+    <p>Given: initial PC value, memory contents (address | instruction), and opcode table.</p>
+    <ol>
+      <li>Start at PC. <strong>Fetch</strong> instruction at that address → put it in IR. <strong>Increment PC</strong> (PC = PC + 1).</li>
+      <li><strong>Decode</strong>: read the opcode (first 4 bits). Look up the opcode table to find what operation it means.</li>
+      <li><strong>Execute</strong>: Perform the operation. Update AC if needed.</li>
+      <li>Move to next instruction (repeat with new PC).</li>
+    </ol>
+    <span class="label" style="margin-top:10px;">Example (from real exam — Q6):</span>
+    <div class="code-box">Opcodes: 0001=LOAD AC, 0010=STORE AC, 0101=ADD to AC, 0011=SUBTRACT from AC
+
+Memory:   200: 1940 | 201: 5941 | 202: 2941 | 203: 1941 | ...
+
+Start: PC=200, AC=0, IR=?
+
+Step 1: Fetch addr 200 → IR=1940, PC=201
+        LOAD AC from addr 940 → AC = value at mem[940]
+
+Step 2: Fetch addr 201 → IR=5941, PC=202
+        ADD to AC from addr 941 → AC = AC + mem[941]
+
+[Continue until program ends → read final PC, AC, IR]</div>
+    <div class="hot-box">🔥 After final instruction: PC = last_address + 1. IR = last instruction fetched. AC = final computed value. The exam gives you the opcode table — you just execute step by step.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Trace method: "Fetch → PC+1 → Decode → Execute → repeat"</strong><br>
+    At each step write: PC (before fetch) → IR (what you just fetched) → AC (after execute)<br>
+    Key: PC updates BEFORE execution. IR shows the current instruction. AC accumulates results.
+  </div>
+</div>
+
+<!-- Q21 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">21</span>
+    <span class="q-badge" style="background:var(--c1)">MULTIPROGRAMMING</span>
+  </div>
+  <div class="q-text">What is multiprogramming (Ch.1 intro)? What problem does it solve?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>Multiprogramming</strong> is the ability of the OS to keep <strong>multiple programs loaded in memory simultaneously</strong> and switch the CPU between them.</p>
+    <p><strong>Problem it solves:</strong> In a single-program system, the CPU sits completely idle whenever the program does I/O (e.g., reading a file takes milliseconds, but the CPU could execute millions of instructions in that time). This is enormously wasteful.</p>
+    <p><strong>Solution:</strong> When Program A starts an I/O operation and has to wait, the OS switches the CPU to Program B. While Program B runs, Program A's I/O completes in the background. When A's I/O is done, it goes back to the Ready queue.</p>
+    <p>Result: CPU stays busy instead of idle → <strong>much higher CPU utilization</strong>.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Multiprogramming = "Never let the CPU idle"</strong><br>
+    When one program waits for I/O → switch to another. The CPU never sits around doing nothing.<br>
+    Analogy: A chef with 3 dishes — while one dish bakes in the oven, the chef preps the other two.
+  </div>
+</div>
+
+<!-- Q22 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">22</span>
+    <span class="q-badge" style="background:var(--c1)">DATA TRANSFER</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What measurements are used for data transfer between CPU↔Cache and Cache↔Main Memory? Why the difference?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>CPU ↔ Cache:</strong> Data is transferred one <strong>word</strong> at a time (word transfer). This is fast and fine because cache is extremely fast.</p>
+    <p><strong>Cache ↔ Main Memory:</strong> Data is transferred in <strong>blocks</strong> (block transfer). A block is multiple words at once. This is done because main memory is much slower than cache — to compensate, the system loads a whole block at once (exploiting the principle of spatial locality: if you need word N, you'll likely need N+1, N+2 soon too).</p>
+    <p><strong>Why different?</strong> The speed gap. Cache is ~60x faster than RAM. Transferring in blocks amortizes the high latency of main memory access.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>CPU↔Cache = WORD (small, fast) · Cache↔RAM = BLOCK (big, amortize slowness)</strong><br>
+    Think: Cache is a fast lane — you hand off one item at a time (word). RAM is a slow highway — you load a truck (block) to make the slow trip worthwhile.
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SECTION 2 — CHAPTER 2
+═══════════════════════════════════════════════════════════════════ -->
+
+<div class="section-header sec-ch2">
+  <h2>Section 2 — Chapter 2: Operating System Overview</h2>
+  <p>OS Definition · Evolution · Services · Multiprogramming · Kernel · User/Kernel Mode · Modern OS</p>
+</div>
+
+<!-- Q23 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">23</span>
+    <span class="q-badge" style="background:var(--c2)">DEFINITION</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is an Operating System? (Give all 4 definitions / roles)</div>
+  <div class="answer">
+    <span class="label">Full Answer — Four Ways to Define It</span>
+    <ol>
+      <li><strong>Collection of programs</strong> that manages the hardware resources of the computer</li>
+      <li><strong>System service provider</strong> to the application programs</li>
+      <li><strong>Interface (link)</strong> between application programs and hardware</li>
+      <li>Software that <strong>controls the execution</strong> of programs and manages I/O, files, and memory</li>
+    </ol>
+    <div class="hot-box">🔥 Exam MCQ: "What is an operating system?" → Answer: ALL OF THE ABOVE (all four definitions are correct). This was an exact exam question!</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>OS = "Manager, Service Provider, Interface, Controller"</strong><br>
+    Think of the OS as a <em>hotel manager</em>: manages resources (rooms), provides services (room service, concierge), is the interface between guests (apps) and facilities (hardware), and controls everything.
+  </div>
+</div>
+
+<!-- Q24 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">24</span>
+    <span class="q-badge" style="background:var(--c2)">OBJECTIVES</span>
+  </div>
+  <div class="q-text">What are the 3 objectives of an Operating System?</div>
+  <div class="answer">
+    <ol>
+      <li><strong>Convenience</strong> — Makes using the computer more convenient for the user (abstracts hardware complexity)</li>
+      <li><strong>Efficiency</strong> — Allows computer system resources to be used in an efficient manner (maximize CPU utilization, minimize waste)</li>
+      <li><strong>Ability to Evolve</strong> — Constructed in a way that allows effective development, testing, and introduction of new system functions without interfering with existing services</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">C · E · E</span>
+    <strong>C</strong>onvenience · <strong>E</strong>fficiency · <strong>E</strong>volve (ability to evolve)<br>
+    "Can Elephants Evolve?" — Yes, and so must the OS!
+  </div>
+</div>
+
+<!-- Q25 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">25</span>
+    <span class="q-badge" style="background:var(--c2)">SERVICES</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What are the 7 services provided by the Operating System?</div>
+  <div class="answer">
+    <ol>
+      <li><strong>Program development</strong> — Provides utilities like editors and debuggers to help developers write code</li>
+      <li><strong>Program execution</strong> — Loads programs into memory and runs them; handles scheduling</li>
+      <li><strong>Access to I/O devices</strong> — Provides a uniform interface so programs can use keyboards, printers, disks, etc. without knowing hardware details</li>
+      <li><strong>Controlled access to files</strong> — Manages file creation, deletion, read/write, permissions, and organization</li>
+      <li><strong>System access</strong> — Controls access to shared resources and protects the system from unauthorized users</li>
+      <li><strong>Error detection and response</strong> — Detects and handles hardware errors, arithmetic errors, and application errors (e.g., lack of paper in printer)</li>
+      <li><strong>Accounting</strong> — Collects usage statistics, monitors performance, and tracks resource usage per user</li>
+    </ol>
+    <div class="hot-box">🔥 This exact list appeared on previous exams. Know all 7. The "lack of paper in printer" is an example of error #6 — the OS handles it, not the hardware.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">P · P · I · F · S · E · A</span>
+    <strong>P</strong>rogram dev · <strong>P</strong>rogram execution · <strong>I</strong>/O access · <strong>F</strong>ile access · <strong>S</strong>ystem access · <strong>E</strong>rror detection · <strong>A</strong>ccounting<br>
+    "Please Please Install Files, Seriously Every Administrator does this"
+  </div>
+</div>
+
+<!-- Q26 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">26</span>
+    <span class="q-badge" style="background:var(--c2)">EVOLUTION</span>
+  </div>
+  <div class="q-text">What is Serial Processing? What are its problems?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>Serial processing</strong> was the earliest form of computing (1940s–50s). Characteristics:</p>
+    <ul>
+      <li>No operating system — programmer interacts directly with hardware</li>
+      <li>Programs run one at a time, in sequence</li>
+      <li>Jobs scheduled using sign-up sheets — manual scheduling</li>
+      <li>Console had lights and toggle switches for input/output</li>
+    </ul>
+    <p><strong>Problems:</strong></p>
+    <ul>
+      <li><strong>Scheduling problem:</strong> If a booked job finishes early, the rest of the time slot is wasted. If it runs over, it's cut off.</li>
+      <li><strong>Setup time:</strong> Loading tape, compiling, linking, etc. took a long time — during which the CPU sat idle.</li>
+    </ul>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Serial Processing = "No OS, one job at a time, manual everything, wasteful"</strong><br>
+    Imagine a single bathroom in a house — one person at a time, and they have to set it up themselves every time.
+  </div>
+</div>
+
+<!-- Q27 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">27</span>
+    <span class="q-badge" style="background:var(--c2)">EVOLUTION</span>
+  </div>
+  <div class="q-text">What is Simple Batch Processing? What are its 4 key features?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>Simple batch processing</strong> introduced a special program called a <strong>Monitor</strong> (early OS). Jobs were collected in batches and the monitor automatically ran them in sequence, reducing idle time.</p>
+    <p><strong>4 Key features introduced by batch processing:</strong></p>
+    <ol>
+      <li><strong>Memory protection</strong> — Protect the monitor's memory from user programs. User programs cannot overwrite the monitor.</li>
+      <li><strong>Timer</strong> — Prevents a single job from monopolizing the system. If a job runs too long, the timer interrupts and kills it.</li>
+      <li><strong>Privileged instructions</strong> — Certain instructions (like I/O) can only be executed by the monitor (kernel mode), not by user programs.</li>
+      <li><strong>Interrupts</strong> — Allow the OS to give/take control of the processor from user programs.</li>
+    </ol>
+    <p>Jobs used JCL (Job Control Language) to specify resources needed.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">M · T · P · I</span>
+    <strong>M</strong>emory protection · <strong>T</strong>imer · <strong>P</strong>rivileged instructions · <strong>I</strong>nterrupts<br>
+    "Monitor Throws Programs Into" order — the Monitor introduces all 4.<br>
+    JCL = Job Control Language (tells batch system what each job needs).
+  </div>
+</div>
+
+<!-- Q28 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">28</span>
+    <span class="q-badge" style="background:var(--c2)">EVOLUTION</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is Uniprogramming? What is its main problem?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>Uniprogramming</strong> (also called Unitasking): only <strong>one program runs at a time</strong>. When that program does I/O, the <strong>CPU sits completely idle</strong> waiting for the I/O to finish.</p>
+    <p><strong>Main problem:</strong> CPU utilization is terrible. A typical program might be doing I/O 80–90% of the time. The CPU is idle 80–90% of the time. Enormously wasteful.</p>
+    <div class="hot-box">🔥 Exam MCQ: "The systems which allow only one process execution at a time are called:" → Unitasking systems (NOT uniprogramming, NOT uniprocessing — the correct exam answer is "Unitasking")</div>
+    <p><strong>CPU Utilization formula for 1 program:</strong> If p = fraction of time doing I/O → CPU util = 1 - p. If p = 0.8 → CPU util = 20%.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Uniprogramming = 1 job, CPU idles during I/O = wasteful</strong><br>
+    The answer in the MCQ is "Unitasking" not "Uniprocessing." Uniprocessing = 1 processor (hardware); Unitasking = 1 task running (software). Know the difference!
+  </div>
+</div>
+
+<!-- Q29 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">29</span>
+    <span class="q-badge" style="background:var(--c2)">EVOLUTION</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is Multiprogramming? What is the CPU utilization formula?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>Multiprogramming:</strong> multiple programs are loaded in memory at the same time. When the running program must wait for I/O, the OS <strong>switches the CPU to another program</strong>. The CPU is almost never idle.</p>
+    <p><strong>CPU Utilization Formula (probabilistic model):</strong></p>
+    <div class="code-box">p = fraction of time each process spends waiting for I/O
+n = number of processes (programs) in memory
+
+CPU Utilization = 1 - p^n
+
+Example: p = 0.8, n = 1 → CPU = 1 - 0.8^1 = 20%
+Example: p = 0.8, n = 2 → CPU = 1 - 0.8^2 = 1 - 0.64 = 36%
+Example: p = 0.8, n = 3 → CPU = 1 - 0.8^3 = 1 - 0.512 = 48.8%
+Example: p = 0.8, n = 5 → CPU = 1 - 0.8^5 = 1 - 0.328 = 67.2%</div>
+    <p>As n increases (more programs), CPU utilization improves significantly. But benefit decreases with very large n (diminishing returns).</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>CPU util = 1 − p^n</strong><br>
+    p = I/O fraction · n = number of programs<br>
+    "1 minus p to the power of n" — more programs = higher utilization = better!<br>
+    Never forget the ^ (exponent). It's not 1−p×n, it's 1−p<sup>n</sup>.
+  </div>
+</div>
+
+<!-- Q30 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">30</span>
+    <span class="q-badge" style="background:var(--c2)">EVOLUTION</span>
+  </div>
+  <div class="q-text">What is Time Sharing?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>Time sharing</strong> is an extension of multiprogramming where the CPU switches between processes so rapidly that each user gets the impression of having dedicated access to the machine. It enables interactive computing.</p>
+    <ul>
+      <li>Multiple users share the computer simultaneously</li>
+      <li>Each gets a time slice (quantum) of CPU time</li>
+      <li>Response time is short enough for interactive use (feels instant)</li>
+      <li>First system: <strong>CTSS (Compatible Time-Sharing System)</strong> developed at MIT</li>
+    </ul>
+    <p><strong>Key difference from multiprogramming:</strong> Multiprogramming maximizes CPU utilization (batch, non-interactive). Time sharing minimizes response time (interactive).</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Time Sharing = Interactive Multiprogramming = everyone gets a turn quickly</strong><br>
+    Think of a spinning pizza slicer — every user gets a thin slice, very fast, repeatedly. You feel like you own the whole pie.<br>
+    First = CTSS at MIT.
+  </div>
+</div>
+
+<!-- Q31 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">31</span>
+    <span class="q-badge" style="background:var(--c2)">KERNEL</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is the Kernel? What is User Mode vs. Kernel Mode?</div>
+  <div class="answer">
+    <span class="label">Kernel</span>
+    <p>The <strong>kernel</strong> is the portion of the OS that resides permanently in main memory. It contains the most frequently used OS functions. Also called the <strong>nucleus</strong> of the OS. Everything else in the OS is loaded into memory only when needed.</p>
+    <span class="label" style="margin-top:12px;">User Mode vs. Kernel Mode</span>
+    <table class="answer-table">
+      <tr><th>Feature</th><th>User Mode</th><th>Kernel Mode (System/Control Mode)</th></tr>
+      <tr><td><strong>Privilege level</strong></td><td>Less privileged, restricted</td><td>More privileged, full access</td></tr>
+      <tr><td><strong>Allowed instructions</strong></td><td>Normal instructions only</td><td>ALL instructions including privileged</td></tr>
+      <tr><td><strong>Memory access</strong></td><td>Only own address space</td><td>All of memory</td></tr>
+      <tr><td><strong>Who runs here?</strong></td><td>User applications</td><td>OS kernel</td></tr>
+      <tr><td><strong>How to switch?</strong></td><td>Issue a system call (trap)</td><td>Returns via interrupt return</td></tr>
+    </table>
+    <div class="hot-box">🔥 User programs CANNOT directly execute I/O, access hardware, or call privileged instructions. They must ask the OS via a system call (trap). The OS then runs in kernel mode on their behalf.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Kernel Mode = "Full power, all access" · User Mode = "Limited, restricted"</strong><br>
+    Think: Kernel Mode = admin/root account. User Mode = guest account.<br>
+    Kernel = the core that stays in RAM always. Everything else swaps in/out.
+  </div>
+</div>
+
+<!-- Q32 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">32</span>
+    <span class="q-badge" style="background:var(--c2)">ACHIEVEMENTS</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What are the 5 major OS achievements (innovations introduced by modern OSes)?</div>
+  <div class="answer">
+    <ol>
+      <li><strong>Processes</strong> — The abstraction of a running program; enables multiprogramming, concurrency, and resource management.</li>
+      <li><strong>Memory management</strong> — Virtual memory, paging, isolation between processes; programs can be larger than physical RAM.</li>
+      <li><strong>Information protection and security</strong> — Confidentiality, integrity, availability, and authentication of data and users.</li>
+      <li><strong>Scheduling and resource management</strong> — Fair allocation of CPU, memory, and I/O among competing processes; optimizes performance.</li>
+      <li><strong>System structure</strong> — Layered, modular OS design that separates concerns (hardware → OS kernel → OS utilities → applications).</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">P · M · I · S · S</span>
+    <strong>P</strong>rocesses · <strong>M</strong>emory management · <strong>I</strong>nformation security · <strong>S</strong>cheduling · <strong>S</strong>ystem structure<br>
+    "Processes Make It Smoother and Structured"
+  </div>
+</div>
+
+<!-- Q33 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">33</span>
+    <span class="q-badge" style="background:var(--c2)">MEMORY</span>
+  </div>
+  <div class="q-text">What is Virtual Memory? What is Paging?</div>
+  <div class="answer">
+    <span class="label">Virtual Memory</span>
+    <p><strong>Virtual memory</strong> allows programs to use more memory than physically available in RAM. The OS gives each process the illusion of a large, private address space. The actual data for pages not currently in RAM is stored on disk (in a swap/page file).</p>
+    <p>Key: programs use <strong>logical (virtual) addresses</strong>. The OS maps them to physical addresses in RAM via page tables. If a page isn't in RAM, a <strong>page fault</strong> occurs and the OS loads it from disk.</p>
+    <span class="label" style="margin-top:12px;">Paging</span>
+    <p><strong>Paging</strong> divides both the virtual address space and physical RAM into fixed-size blocks called <strong>pages</strong> (virtual) and <strong>frames</strong> (physical).</p>
+    <ul>
+      <li>Virtual address = page number + offset</li>
+      <li>OS uses a <strong>page table</strong> to map virtual page numbers to physical frame numbers</li>
+      <li>Pages not in RAM are stored on disk until needed</li>
+    </ul>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Virtual Memory = "Programs think they have infinite RAM"</strong><br>
+    <strong>Paging = "Cut memory into equal-size pages/frames"</strong><br>
+    Virtual address → page table → physical address in RAM (or disk if not loaded).<br>
+    Page fault = needed page is on disk → load it → resume.
+  </div>
+</div>
+
+<!-- Q34 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">34</span>
+    <span class="q-badge" style="background:var(--c2)">SECURITY</span>
+  </div>
+  <div class="q-text">What are the 4 information protection and security goals?</div>
+  <div class="answer">
+    <ol>
+      <li><strong>Availability</strong> — System is accessible and working when authorized users need it (protect against DoS)</li>
+      <li><strong>Confidentiality</strong> — Information is only accessible to authorized users (protect against eavesdropping)</li>
+      <li><strong>Data Integrity</strong> — Data cannot be modified in an unauthorized or undetected way (protect against tampering)</li>
+      <li><strong>Authenticity</strong> — Verifying identity of users and systems; ensuring communications are genuine</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">A · C · I · A</span>
+    <strong>A</strong>vailability · <strong>C</strong>onfidentiality · <strong>I</strong>ntegrity · <strong>A</strong>uthenticity<br>
+    "All Computers Instill Authentication" or simply "ACIA" (or the cybersecurity classic "CIA + A")
+  </div>
+</div>
+
+<!-- Q35 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">35</span>
+    <span class="q-badge" style="background:var(--c2)">MODERN OS</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What are the 5 Modern OS features?</div>
+  <div class="answer">
+    <ol>
+      <li><strong>Microkernel architecture</strong> — Assigns only essential functions to the kernel (memory, IPC, I/O). Other services run as user-space processes. More reliable and portable.</li>
+      <li><strong>Multithreading</strong> — A process can be divided into concurrent threads. Multiple threads in a process improve performance and responsiveness.</li>
+      <li><strong>Symmetric Multiprocessing (SMP)</strong> — Multiple processors sharing one OS, one memory. Any processor can run the kernel. Self-scheduling.</li>
+      <li><strong>Distributed operating systems</strong> — Provides illusion of a single coherent system across multiple networked machines.</li>
+      <li><strong>Object-oriented design</strong> — OS itself is designed using OO principles — modular, extensible, reusable components.</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">M · M · S · D · O</span>
+    <strong>M</strong>icrokernel · <strong>M</strong>ultithreading · <strong>S</strong>MP · <strong>D</strong>istributed · <strong>O</strong>bject-oriented<br>
+    "Modern Machines Should Deploy Objects"
+  </div>
+</div>
+
+<!-- Q36 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">36</span>
+    <span class="q-badge" style="background:var(--c2)">WINDOWS</span>
+  </div>
+  <div class="q-text">What is the Windows OS Architecture? Key components?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>Windows uses a <strong>modular, layered architecture</strong>:</p>
+    <p><strong>Hardware Abstraction Layer (HAL)</strong> — Lowest layer. Hides hardware differences from upper layers. Makes OS portable across different hardware platforms.</p>
+    <p><strong>Kernel (microkernel-like)</strong> — Thread scheduling, interrupt/exception handling, synchronization. Always in kernel mode.</p>
+    <p><strong>Executive (kernel mode)</strong> — Provides the main OS services. Key components:</p>
+    <ul>
+      <li>I/O Manager</li>
+      <li>Cache Manager</li>
+      <li>Object Manager</li>
+      <li>Plug-and-Play Manager</li>
+      <li>Power Manager</li>
+      <li>Security Reference Monitor</li>
+      <li>Virtual Memory Manager (VMM)</li>
+      <li>Process and Thread Manager</li>
+      <li>Configuration Manager (registry)</li>
+      <li>Local Procedure Call (LPC) facility</li>
+    </ul>
+    <p><strong>User-mode subsystems</strong> — Win32, security subsystem, environment subsystems. User-mode device drivers also live here in Windows.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Windows layers: HAL → Kernel → Executive → User subsystems</strong><br>
+    HAL = Hardware glue. Kernel = scheduling/sync. Executive = 10 managers. User = apps.<br>
+    Remember the mnemonic for the 10 Executive components: "I Care Over Plug Power Security Virtual Processes Configure Local"
+  </div>
+</div>
+
+<!-- Q37 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">37</span>
+    <span class="q-badge" style="background:var(--c2)">MEMORY MGMT</span>
+  </div>
+  <div class="q-text">What are the 5 goals of Memory Management?</div>
+  <div class="answer">
+    <ol>
+      <li><strong>Process isolation</strong> — Prevent processes from interfering with each other's memory</li>
+      <li><strong>Automatic allocation and management</strong> — Programmer doesn't need to manage memory manually</li>
+      <li><strong>Support for modular programming</strong> — Programs can be broken into separately compiled modules</li>
+      <li><strong>Protection and access control</strong> — Prevent unauthorized access to memory regions</li>
+      <li><strong>Long-term storage</strong> — Store large amounts of data persistently beyond program execution</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">I · A · M · P · L</span>
+    <strong>I</strong>solation · <strong>A</strong>utomatic alloc · <strong>M</strong>odular support · <strong>P</strong>rotection · <strong>L</strong>ong-term storage<br>
+    "I Always Make Protected Libraries"
+  </div>
+</div>
+
+<!-- Q38 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">38</span>
+    <span class="q-badge" style="background:var(--c2)">SUMMARY</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">Which error will the OS handle: Power failure, lack of paper in printer, or network failure?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>Answer: Lack of paper in printer</strong></p>
+    <p>This is an OS-level I/O error that the OS can detect and report (error detection service #6).</p>
+    <p><strong>Power failure</strong> — This is a hardware failure that the OS cannot control or recover from (power is gone!). It may log it if UPS exists, but it cannot "handle" it.</p>
+    <p><strong>Network connection failure</strong> — This is typically a hardware/driver issue beyond the OS's direct control at this level.</p>
+    <p>The OS specifically handles I/O device errors like printer-out-of-paper, disk-full, disk-read-error — these are within its error detection scope.</p>
+    <div class="hot-box">🔥 This appeared as an exact MCQ on a previous exam. The answer is ONLY "Lack of paper in printer" — not "All of the above."</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>OS handles I/O device-level errors (printer, disk, keyboard) — NOT hardware failures (power, network hardware)</strong><br>
+    Rule: If the OS can detect and respond to it through software → OS handles it. If the hardware itself fails (no power, no signal) → OS cannot help.
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SECTION 3 — CHAPTER 3
+═══════════════════════════════════════════════════════════════════ -->
+
+<div class="section-header sec-ch3">
+  <h2>Section 3 — Chapter 3: Process Description &amp; Control</h2>
+  <p>Process States · PCB · Context Switch · Concurrency · CPU Utilization</p>
+</div>
+
+<!-- Q39 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">39</span>
+    <span class="q-badge" style="background:var(--c3)">DEFINITION</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is a Process? Give the complete definition.</div>
+  <div class="answer">
+    <span class="label">Full Answer — Three Ways to Define Process</span>
+    <ol>
+      <li>A <strong>program in execution</strong></li>
+      <li>An instance of a program running on a computer</li>
+      <li>The <strong>entity that can be assigned to and executed on a processor</strong></li>
+    </ol>
+    <p><strong>Process ≠ Program:</strong> A program is a passive entity (a file on disk). A process is an active entity (the running instance). The same program can be run as multiple separate processes simultaneously.</p>
+    <p><strong>State of a process</strong> is defined by its <strong>current activity</strong> — what it is doing right now (Running, Ready, Blocked, etc.).</p>
+    <div class="hot-box">🔥 Exam MCQ: "The state of a process is defined by:" → Answer: "The current activity of the process"</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Process = Program in Execution (active, not passive)</strong><br>
+    Program = recipe (passive, sitting there). Process = cooking in progress (active, using resources).<br>
+    State = what it's doing RIGHT NOW.
+  </div>
+</div>
+
+<!-- Q40 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">40</span>
+    <span class="q-badge" style="background:var(--c3)">COMPONENTS</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What are the 3 components of a Process?</div>
+  <div class="answer">
+    <ol>
+      <li><strong>Program code</strong> — The executable instructions. May be shared with other processes running the same program.</li>
+      <li><strong>A set of data</strong> — Global variables, heap, stack — the data the program works on.</li>
+      <li><strong>A number of attributes describing the state</strong> — The execution context: PC, registers, PCB information, process state, etc.</li>
+    </ol>
+    <div class="hot-box">🔥 This appeared as an exact exam question: "Explain what are the three components of a process." Know all three. The third component is also called the "execution context."</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">C · D · A</span>
+    <strong>C</strong>ode · <strong>D</strong>ata · <strong>A</strong>ttributes (execution context)<br>
+    "Code Does Anything" — Code is the instructions, Data is what it works on, Attributes describe where it is in execution.
+  </div>
+</div>
+
+<!-- Q41 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">41</span>
+    <span class="q-badge" style="background:var(--c3)">PCB</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is the PCB (Process Control Block)? What are its 3 sections and what does each contain?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>The <strong>Process Control Block (PCB)</strong> is a data structure maintained by the OS for each process. It is stored as a <strong>block in memory</strong> (not secondary storage, not a variable). All PCBs are listed in the <strong>Process Table</strong>.</p>
+    <p>The PCB contains all the information the OS needs to manage a process and resume it after a context switch.</p>
+    <table class="answer-table">
+      <tr><th>Section</th><th>Contents</th></tr>
+      <tr>
+        <td><strong>1. Process Identification</strong></td>
+        <td>• Process ID (unique PID)<br>• Parent Process ID<br>• User ID (which user owns it)</td>
+      </tr>
+      <tr>
+        <td><strong>2. Processor State Information</strong></td>
+        <td>• User-visible registers (R0, R1, ..., Rn)<br>• Control/Status registers: PC (next instruction), IR (current instruction), PSW (condition codes, flags, mode bits)<br>• Stack Pointers (SP)</td>
+      </tr>
+      <tr>
+        <td><strong>3. Process Control Information</strong></td>
+        <td>• Scheduling state info (state, priority, scheduling parameters, event being waited for)<br>• Data structuring (queue links)<br>• Inter-process communication info<br>• Process privileges<br>• Memory management (page/segment tables)<br>• Resource ownership (open files, I/O devices assigned)</td>
+      </tr>
+    </table>
+    <div class="hot-box">🔥 Exact exam MCQs: "The Process Control Block is:" → "A block in memory." "The entry of all PCBs is in:" → "Process Table."</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">I · P · C</span>
+    <strong>I</strong>dentification · <strong>P</strong>rocessor State · <strong>C</strong>ontrol Info<br>
+    "I Provide Context" — PCB provides all the context needed to restore a process.<br>
+    PCB = block in memory. All PCBs → Process Table.
+  </div>
+</div>
+
+<!-- Q42 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">42</span>
+    <span class="q-badge" style="background:var(--c3)">STATES</span>
+  </div>
+  <div class="q-text">What is the Two-State Process Model?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>The simplest model — a process is in one of two states:</p>
+    <table class="answer-table">
+      <tr><th>State</th><th>Meaning</th></tr>
+      <tr><td><strong>Running</strong></td><td>Currently being executed on the CPU</td></tr>
+      <tr><td><strong>Not-Running</strong></td><td>Everything else — waiting in a queue</td></tr>
+    </table>
+    <p>The <strong>Dispatcher</strong> picks the next process from the Not-Running queue and gives it the CPU (Running). When a process is paused, it goes back to Not-Running.</p>
+    <p><strong>Problem with two-state model:</strong> Not all Not-Running processes are equal — some are blocked (waiting for I/O) and cannot run even if the CPU is free. This is why we need more states.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Two-State = Running vs. Not-Running (too simple, leads to 5-state)</strong><br>
+    Problem: if all Not-Running processes are blocked on I/O, CPU still sits idle even though they're "waiting." The 5-state model fixes this by separating Ready from Blocked.
+  </div>
+</div>
+
+<!-- Q43 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">43</span>
+    <span class="q-badge" style="background:var(--c3)">STATES</span>
+    <span class="hot-tag">🔥 EXAM #1</span>
+  </div>
+  <div class="q-text">What are the Five Process States? Describe each and list all transitions with their names.</div>
+  <div class="answer">
+    <span class="label">Five States</span>
+    <table class="answer-table">
+      <tr><th>State</th><th>Description</th><th>Max Count</th></tr>
+      <tr><td><strong>New</strong></td><td>OS has created the process (assigned PID, initialized PCB) but it hasn't entered the pool of executable processes yet</td><td>—</td></tr>
+      <tr><td><strong>Ready</strong></td><td>In main memory, ready to execute; just waiting its turn for the CPU</td><td>M (memory slots)</td></tr>
+      <tr><td><strong>Running</strong></td><td>Currently executing on a CPU</td><td>P (one per processor)</td></tr>
+      <tr><td><strong>Blocked</strong> (Waiting)</td><td>Cannot execute until some event occurs (e.g., I/O completion); waiting for a specific device or event</td><td>D (number of I/O devices)</td></tr>
+      <tr><td><strong>Exit</strong></td><td>Process has completed execution or been aborted; PCB still kept briefly for parent to collect exit code</td><td>—</td></tr>
+    </table>
+    <span class="label" style="margin-top:12px;">Transitions (name → event)</span>
+    <table class="answer-table">
+      <tr><th>Transition</th><th>Trigger</th></tr>
+      <tr><td>New → Ready: <strong>Admit</strong></td><td>OS admits process to memory pool</td></tr>
+      <tr><td>Ready → Running: <strong>Dispatch</strong></td><td>Dispatcher selects this process from ready queue and gives it CPU</td></tr>
+      <tr><td>Running → Ready: <strong>Timeout</strong> (Preempt)</td><td>Time quantum expires; process preempted</td></tr>
+      <tr><td>Running → Blocked: <strong>Event Wait</strong></td><td>Process requests I/O or waits for event; must wait for it</td></tr>
+      <tr><td>Blocked → Ready: <strong>Event Occurs</strong></td><td>The I/O or event the process was waiting for has completed</td></tr>
+      <tr><td>Running → Exit: <strong>Release</strong></td><td>Process finishes or is killed</td></tr>
+    </table>
+    <div class="hot-box">🔥 "Old" is NOT a valid state. Running → Blocked (NOT Running → Ready) when waiting for I/O. Only Blocked → Ready when event completes. Common exam traps!</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize — States</div>
+    <span class="big-mnemonic">N · R · R · B · E</span>
+    <strong>N</strong>ew · <strong>R</strong>eady · <strong>R</strong>unning · <strong>B</strong>locked · <strong>E</strong>xit<br>
+    "Never Ride Recklessly Beyond Exits"<br>
+    Transitions: Admit · Dispatch · Timeout · EventWait · EventOccurs · Release
+  </div>
+</div>
+
+<!-- Q44 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">44</span>
+    <span class="q-badge" style="background:var(--c3)">STATES</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">Why do we need Suspended states? Explain Blocked/Suspended and Ready/Suspended.</div>
+  <div class="answer">
+    <span class="label">Why Suspension Is Needed</span>
+    <p><strong>Problem:</strong> Imagine ALL processes currently in main memory are in the Blocked state — they are all waiting for I/O. No process is Ready. The CPU is completely idle even though there might be more work to do. The system is wasting time.</p>
+    <p><strong>Solution:</strong> The OS <strong>swaps (suspends)</strong> one or more Blocked processes out to disk (virtual memory). The freed RAM space can then be used to load a new or previously suspended process that IS ready to run.</p>
+    <span class="label" style="margin-top:10px;">Two Suspended States</span>
+    <table class="answer-table">
+      <tr><th>State</th><th>Where</th><th>Description</th></tr>
+      <tr><td><strong>Blocked/Suspended</strong></td><td>Disk (virtual memory)</td><td>Process was moved to disk while still blocked (still waiting for its event). When event occurs → moves to Ready/Suspended.</td></tr>
+      <tr><td><strong>Ready/Suspended</strong></td><td>Disk (virtual memory)</td><td>Process is on disk but its event has occurred — it is ready to run. Needs to be loaded back into RAM before it can run.</td></tr>
+    </table>
+    <p><strong>OS preference:</strong> When bringing a process back into memory, prefer to activate a <strong>previously suspended process</strong> (it was already there) rather than admitting a brand new one. This avoids increasing the total system load.</p>
+    <p><strong>Suspended processes are NOT in main memory</strong> — they are in virtual memory (disk/swap space). Therefore they can be unlimited in number (unbounded).</p>
+    <div class="hot-box">🔥 This appeared as Q9 on a real exam as "Explain the figure." Know the full explanation above word for word.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>WHY: All processes Blocked → CPU idle → OS swaps one to disk → load another → CPU busy again</strong><br>
+    Blocked/Suspended = on disk, still waiting for event<br>
+    Ready/Suspended = on disk, event done, ready but needs loading back into RAM<br>
+    Suspended = on DISK (virtual memory) = unbounded count (∞)
+  </div>
+</div>
+
+<!-- Q45 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">45</span>
+    <span class="q-badge" style="background:var(--c3)">STATES</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is the maximum number of processes in each state? (Given P processors, D devices, M memory slots)</div>
+  <div class="answer">
+    <table class="answer-table">
+      <tr><th>State</th><th>Maximum Count</th><th>Reason</th></tr>
+      <tr><td><strong>Running</strong></td><td>= P (number of processors)</td><td>One process per CPU. If you have 2 CPUs, at most 2 processes can be Running simultaneously.</td></tr>
+      <tr><td><strong>Blocked</strong></td><td>= D (number of I/O devices)</td><td>A process only enters Blocked when waiting for an I/O device. There are only D devices, so at most D processes can be simultaneously waiting on I/O.</td></tr>
+      <tr><td><strong>Ready</strong></td><td>= M − P − D (remaining memory slots)</td><td>In memory, not Running, not Blocked → ready. Bounded by available memory slots minus Running and Blocked.</td></tr>
+      <tr><td><strong>Blocked/Suspended</strong></td><td>Unbounded (∞)</td><td>On disk — no RAM limit. Disk is huge.</td></tr>
+      <tr><td><strong>Ready/Suspended</strong></td><td>Unbounded (∞)</td><td>On disk — no RAM limit.</td></tr>
+    </table>
+    <p><strong>Ordering:</strong> M > P > D (memory holds more processes than processors or devices)</p>
+    <div class="hot-box">🔥 Exact exam trap: "Max Blocked = D (devices), NOT P or M." Students confuse this! A process blocks because it needs a DEVICE — only D devices exist → max D blocked processes.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">Running=P · Blocked=D · Ready=M-P-D · Suspended=∞</span>
+    <strong>Running</strong> is limited by <strong>P</strong>rocessors<br>
+    <strong>Blocked</strong> is limited by <strong>D</strong>evices<br>
+    <strong>Ready</strong> is limited by <strong>M</strong>emory (minus what's Running and Blocked)<br>
+    <strong>Suspended</strong> is on disk = infinite<br>
+    "PD-MR-∞": P for Running, D for Blocked, M-P-D for Ready, infinite for Suspended
+  </div>
+</div>
+
+<!-- Q46 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">46</span>
+    <span class="q-badge" style="background:var(--c3)">OS STRUCTURES</span>
+  </div>
+  <div class="q-text">What are the 4 types of OS Control Tables? What is the Process Image?</div>
+  <div class="answer">
+    <span class="label">4 OS Control Table Types</span>
+    <table class="answer-table">
+      <tr><th>Table Type</th><th>Contains</th></tr>
+      <tr><td><strong>Memory Tables</strong></td><td>Allocation of main and virtual memory, protection attributes, shared memory info</td></tr>
+      <tr><td><strong>I/O Tables</strong></td><td>Availability of I/O devices, status of I/O operations, location of memory buffers for I/O</td></tr>
+      <tr><td><strong>File Tables</strong></td><td>Information about open files, file locations on secondary storage, file attributes</td></tr>
+      <tr><td><strong>Process Tables</strong></td><td>One entry per process — contains/references the PCB for each process. The master table of all processes.</td></tr>
+    </table>
+    <span class="label" style="margin-top:12px;">Process Image — 4 Parts</span>
+    <p>The complete set of information the OS maintains about a process:</p>
+    <ol>
+      <li><strong>User Program</strong> — The executable code</li>
+      <li><strong>User Data</strong> — User address space (stack, heap, global variables)</li>
+      <li><strong>Stack</strong> — Used for procedure/function calls; contains return addresses and local variables</li>
+      <li><strong>PCB (Process Control Block)</strong> — OS-maintained attributes about the process</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>4 OS tables: Memory · I/O · File · Process</strong><br>
+    "MIFP — Managers In Firms Process data"<br>
+    <strong>Process image = Code + Data + Stack + PCB</strong> (4 parts)
+  </div>
+</div>
+
+<!-- Q47 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">47</span>
+    <span class="q-badge" style="background:var(--c3)">CREATION</span>
+  </div>
+  <div class="q-text">What are the reasons for Process Creation and Termination?</div>
+  <div class="answer">
+    <span class="label">Reasons for Process Creation (4)</span>
+    <ol>
+      <li>New batch job (batch submitted for execution)</li>
+      <li>Interactive logon (user logs in)</li>
+      <li>OS creates a process to provide a service to a user (e.g., print spooler)</li>
+      <li>Existing process spawns a child process (fork)</li>
+    </ol>
+    <span class="label" style="margin-top:10px;">Reasons for Process Termination (7 — can be voluntary or involuntary)</span>
+    <table class="answer-table">
+      <tr><th>Voluntary</th><th>Involuntary (Error/Force)</th></tr>
+      <tr><td>Normal exit (process completes)</td><td>Memory unavailable (not enough RAM)</td></tr>
+      <tr><td>Normal exit (process calls exit())</td><td>Bounds violation (accessing memory out of range)</td></tr>
+      <tr><td></td><td>Protection error (unauthorized access)</td></tr>
+      <tr><td></td><td>Arithmetic error (divide by zero, overflow)</td></tr>
+      <tr><td></td><td>Time limit exceeded</td></tr>
+      <tr><td></td><td>I/O failure</td></tr>
+      <tr><td></td><td>Killed by another process (with permission)</td></tr>
+    </table>
+    <div class="hot-box">🔥 Exam MCQ: "A process can be terminated due to:" → "All of the above" (normal exit + fatal error + killed by another process). All three are valid reasons.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Creation: Batch · Login · Service · Fork</strong><br>
+    <strong>Termination: Normal · Errors (all kinds) · Killed</strong><br>
+    Exam answer: "All of the above" — normal exit, fatal error, AND being killed by another process all terminate a process.
+  </div>
+</div>
+
+<!-- Q48 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">48</span>
+    <span class="q-badge" style="background:var(--c3)">CONTEXT SWITCH</span>
+    <span class="hot-tag">🔥 EXAM #1</span>
+  </div>
+  <div class="q-text">What are the 5 triggers for a Context Switch?</div>
+  <div class="answer">
+    <p>A context switch (CPU switches from one process to another) is triggered by:</p>
+    <ol>
+      <li><strong>Clock interrupt</strong> — The time quantum (time slice) has expired. Preempts the current process. (Most common cause.)</li>
+      <li><strong>I/O interrupt</strong> — An I/O operation has completed. The OS wakes up the waiting process and may switch to it if it has higher priority.</li>
+      <li><strong>Memory fault</strong> — A page fault occurs (needed page not in RAM). Current process must wait for page load.</li>
+      <li><strong>Trap</strong> — An exception/error occurred during execution (e.g., divide by zero, illegal instruction).</li>
+      <li><strong>Supervisor call</strong> — Process makes a system call (explicitly asks OS for a service, e.g., open file). May block the current process.</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">C · I · M · T · S</span>
+    <strong>C</strong>lock · <strong>I</strong>/O interrupt · <strong>M</strong>emory fault · <strong>T</strong>rap · <strong>S</strong>upervisor call<br>
+    "Computers Instantly Miss Their Schedule"
+  </div>
+</div>
+
+<!-- Q49 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">49</span>
+    <span class="q-badge" style="background:var(--c3)">CONTEXT SWITCH</span>
+    <span class="hot-tag">🔥 EXAM #1</span>
+  </div>
+  <div class="q-text">What are the 7 steps of a Context Switch? (The S-U-M-S-U-U-R sequence)</div>
+  <div class="answer">
+    <ol>
+      <li><strong>SAVE</strong> — Save the context of the currently running process (all registers: PC, PSW, general-purpose registers)</li>
+      <li><strong>UPDATE</strong> — Update the PCB of the current process: change its state (to Ready or Blocked), note the reason for switching</li>
+      <li><strong>MOVE</strong> — Move the current process's PCB to the appropriate queue (Ready queue or Blocked queue)</li>
+      <li><strong>SELECT</strong> — Select a new process to run (the scheduler/dispatcher picks from the Ready queue based on scheduling policy)</li>
+      <li><strong>UPDATE</strong> — Update the PCB of the newly selected process: change its state to Running</li>
+      <li><strong>UPDATE</strong> — Update memory management data structures (e.g., page table base register to point to new process's pages)</li>
+      <li><strong>RESTORE</strong> — Restore the context of the new process (load its PC, PSW, and registers from its PCB) → new process begins executing</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">S · U · M · S · U · U · R</span>
+    <strong>S</strong>ave · <strong>U</strong>pdate old PCB · <strong>M</strong>ove to queue · <strong>S</strong>elect new · <strong>U</strong>pdate new PCB · <strong>U</strong>pdate memory · <strong>R</strong>estore<br>
+    "Saving Usually Makes Smooth Upgrades Ultra Reliable"<br>
+    Or just say it out loud: "Sum-Sur" — 7 steps.
+  </div>
+</div>
+
+<!-- Q50 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">50</span>
+    <span class="q-badge" style="background:var(--c3)">OS EXECUTION</span>
+  </div>
+  <div class="q-text">What are the 3 OS Execution Models?</div>
+  <div class="answer">
+    <table class="answer-table">
+      <tr><th>Model</th><th>Description</th></tr>
+      <tr>
+        <td><strong>1. Non-process Kernel</strong></td>
+        <td>OS kernel executes OUTSIDE all processes — as a separate entity in privileged mode. User processes run in user mode. When a trap/interrupt occurs, control passes to the kernel entity. (Simple, clear separation)</td>
+      </tr>
+      <tr>
+        <td><strong>2. Execution Within User Processes</strong></td>
+        <td>OS code executes IN THE CONTEXT of the current user process. When user process calls OS, the kernel code runs using that process's stack (but in kernel mode). OS doesn't have its own memory space per se. (Most common in older Unix-like systems)</td>
+      </tr>
+      <tr>
+        <td><strong>3. Process-Based OS</strong></td>
+        <td>Major OS functions are implemented as separate kernel processes. Each has its own PCB and stack. Cleaner design — similar to microkernel. Good for multiprocessor systems.</td>
+      </tr>
+    </table>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>3 OS Models: Outside-everything · Inside-user-process · Separate-OS-processes</strong><br>
+    Think of the OS as a manager: (1) The manager has a separate office, (2) The manager works at your desk, (3) The manager is a whole team of specialized people.
+  </div>
+</div>
+
+<!-- Q51 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">51</span>
+    <span class="q-badge" style="background:var(--c3)">PROCESS TABLE</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">Why is a Process Table needed in a timesharing system? Is it needed if only one process exists?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>Why it is needed in timesharing:</strong></p>
+    <ul>
+      <li>The process table must be maintained to manage multiple processes</li>
+      <li>There must be some reference to memory, I/O devices, and files — directly or indirectly</li>
+      <li>The tables themselves must be accessible by the OS and are subject to memory management</li>
+      <li>Without it, the OS cannot switch between processes (no saved state, no queue management)</li>
+    </ul>
+    <p><strong>Is it needed with only ONE process on a PC?</strong></p>
+    <p><strong>NO</strong> — If there is only a single process that takes over the entire machine, the dispatcher does not need to switch among processes. There is no scheduling, no context switching, no process queue. The process table would be unnecessary overhead.</p>
+    <div class="hot-box">🔥 This appeared as an exact exam question (Q10). Know both parts of the answer!</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Process Table needed = anytime you need to switch between multiple processes</strong><br>
+    Single process that owns everything = no process table needed (nothing to switch to).<br>
+    Think: if there's only 1 person in the building, you don't need a visitor sign-in sheet.
+  </div>
+</div>
+
+<!-- Q52 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">52</span>
+    <span class="q-badge" style="background:var(--c3)">CONCURRENCY</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is Starvation? Give an example.</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>Starvation</strong> is a condition where a process is perpetually denied access to a resource (like the CPU) even though the resource becomes free, because other processes are always chosen over it.</p>
+    <p><strong>Example (from real exam Q13):</strong></p>
+    <p>P1, P2, P3 all need resource R. P1 has it. P2 and P3 wait. P1 finishes → OS grants to P3 → P1 needs it again before P3 finishes → OS grants to P1 after P3 → then to P3 → then to P1... P2 <strong>never gets the resource</strong>. P2 is starving.</p>
+    <div class="hot-box">🔥 This appeared as exact exam question Q13. The answer is "Starvation." P2 CAN run (it's not deadlocked) but NEVER gets its turn.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Starvation = "I could run but never get the chance"</strong><br>
+    Starvation ≠ Deadlock. In deadlock, everyone is stuck waiting for each other (circular wait). In starvation, the process just keeps being skipped over — others always get priority.<br>
+    Think: waiting at a restaurant while everyone else keeps getting served before you.
+  </div>
+</div>
+
+<!-- Q53 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">53</span>
+    <span class="q-badge" style="background:var(--c3)">CONCURRENCY</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">When processes interact, what two requirements must be satisfied? What is one approach that provides both?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>Two fundamental requirements:</strong></p>
+    <ol>
+      <li><strong>Synchronization</strong> — Processes must be synchronized to enforce <strong>mutual exclusion</strong>: only one process can be in its critical section (accessing shared data) at a time. Without this, concurrent access corrupts data.</li>
+      <li><strong>Communication</strong> — Cooperating processes need to <strong>exchange information</strong> (e.g., results, signals, coordination data).</li>
+    </ol>
+    <p><strong>One approach that provides both: Message Passing</strong></p>
+    <p>Message passing allows processes to both synchronize AND communicate by sending/receiving messages. A process waits to receive a message (synchronization) and carries data in the message (communication).</p>
+    <p><strong>Advantage:</strong> Message passing works for distributed systems, shared-memory multiprocessors, AND uniprocessors — it is universally applicable.</p>
+    <div class="hot-box">🔥 This appeared as BOTH Q14 and Q15 on previous exams — it appeared twice! Know the exact answer.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Synchronization = mutual exclusion (one at a time in critical section)</strong><br>
+    <strong>Communication = sharing data between processes</strong><br>
+    <strong>Solution = Message Passing (works everywhere)</strong><br>
+    "Sync and Comm → solved by Message Passing"
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SECTION 4 — CHAPTER 4
+═══════════════════════════════════════════════════════════════════ -->
+
+<div class="section-header sec-ch4">
+  <h2>Section 4 — Chapter 4: Threads, SMP &amp; Microkernels</h2>
+  <p>Threads · ULT vs KLT · SISD/SIMD/MIMD · SMP · Microkernel</p>
+</div>
+
+<!-- Q54 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">54</span>
+    <span class="q-badge" style="background:var(--c4)">THREAD vs PROCESS</span>
+    <span class="hot-tag">🔥 EXAM #1</span>
+  </div>
+  <div class="q-text">What is the fundamental difference between a Process and a Thread?</div>
+  <div class="answer">
+    <table class="answer-table">
+      <tr><th>Aspect</th><th>Process</th><th>Thread</th></tr>
+      <tr><td><strong>Unit of</strong></td><td>Resource ownership + Protection</td><td>Execution (dispatching/scheduling)</td></tr>
+      <tr><td><strong>Has own address space?</strong></td><td>YES — fully isolated</td><td>NO — shares process's address space</td></tr>
+      <tr><td><strong>Create/switch speed</strong></td><td>Slow (heavyweight)</td><td>Fast (lightweight)</td></tr>
+      <tr><td><strong>Private state</strong></td><td>Everything: code, data, files, registers</td><td>Only: PC, Stack, Registers, Local variables</td></tr>
+      <tr><td><strong>Shared with siblings</strong></td><td>Nothing (processes are isolated)</td><td>Code, Data, Heap, Open Files</td></tr>
+      <tr><td><strong>Communication</strong></td><td>Requires OS (IPC: pipes, sockets)</td><td>Can share memory directly (fast but risky)</td></tr>
+    </table>
+    <p><strong>Key insight:</strong> Multithreading separates the two functions that processes used to combine: (1) resource ownership and (2) execution. Threads handle execution; the parent process handles resource ownership.</p>
+    <p>A process has at least ONE thread. When the process is created, a main thread is automatically created with it.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Process = Resource owner. Thread = Execution unit.</strong><br>
+    Think: A factory (process) owns the building, machines, and tools. Workers (threads) are the ones actually doing the work. Workers share the factory's resources but each has their own job, tools, and workflow.
+  </div>
+</div>
+
+<!-- Q55 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">55</span>
+    <span class="q-badge" style="background:var(--c4)">THREAD CHARS</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What are the 5 characteristics that each Thread must have? (Q11 on previous exam)</div>
+  <div class="answer">
+    <ol>
+      <li><strong>A thread execution state</strong> — Running, Ready, or Blocked. Threads have their own scheduling state just like processes.</li>
+      <li><strong>A saved thread context when not running</strong> — The thread's PC and registers are saved when it's not running. "One way to view a thread is as an independent program counter operating within a process."</li>
+      <li><strong>An execution stack</strong> — Each thread has its OWN private stack for function calls and local variables.</li>
+      <li><strong>Some per-thread static storage for local variables</strong> — Thread-local variables that are private to each thread.</li>
+      <li><strong>Access to the memory and resources of its process, shared with all other threads in that process</strong> — Code, heap, global data, open files — all shared among threads of the same process.</li>
+    </ol>
+    <div class="hot-box">🔥 This appeared as exact exam Q11. Know all 5 points. The exam quote "one way to view a thread is as an independent program counter" often appears.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">S · C · E · S · S</span>
+    <strong>S</strong>tate · <strong>C</strong>ontext · <strong>E</strong>xecution stack · <strong>S</strong>tatic local storage · <strong>S</strong>hared process resources<br>
+    "Soldiers Can Execute Stealthy Strikes" — 5 things every thread has.
+  </div>
+</div>
+
+<!-- Q56 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">56</span>
+    <span class="q-badge" style="background:var(--c4)">THREAD</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What happens to threads when a process is TERMINATED or SUSPENDED?</div>
+  <div class="answer">
+    <span class="label">Process Termination → All threads terminate</span>
+    <p>When a process is terminated, <strong>ALL threads within that process are terminated</strong>. Threads share the process's address space. When the process dies, all its resources (memory, files, address space) are deallocated — so all threads lose their execution environment and are also terminated.</p>
+    <span class="label" style="margin-top:10px;">Process Suspension → All threads are suspended</span>
+    <p>When a process is suspended (swapped to disk), all its threads are also suspended. Since threads share the same address space, they ALL go to disk together. You cannot suspend just one thread of a process while leaving others in memory.</p>
+    <span class="label" style="margin-top:10px;">Thread deallocation timing</span>
+    <p>A thread's register context and stack are <strong>deallocated when the thread TERMINATES</strong> — not when it blocks, not when it spawns, not when it unblocks. Only at termination.</p>
+    <div class="hot-box">🔥 Exact exam MCQs: "Termination of the process terminates:" → "All threads within the process." "Register context and stacks are deallocated when the thread:" → "Terminates."</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Process terminates → ALL threads die. Process suspends → ALL threads suspend.</strong><br>
+    Reason: Threads live INSIDE the process's address space. No house = no tenants.<br>
+    Deallocation = at TERMINATION only (not at block, not at unblock).
+  </div>
+</div>
+
+<!-- Q57 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">57</span>
+    <span class="q-badge" style="background:var(--c4)">ULT vs KLT</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is ULT (User-Level Thread)? What is its main problem? What is KLT (Kernel-Level Thread)? What is the Jacketing technique?</div>
+  <div class="answer">
+    <span class="label">ULT — User-Level Threads</span>
+    <table class="answer-table">
+      <tr><th>Feature</th><th>ULT</th></tr>
+      <tr><td>Managed by</td><td>Application (thread library in user space — kernel is unaware)</td></tr>
+      <tr><td>Kernel aware?</td><td>NO — kernel only sees one process</td></tr>
+      <tr><td>Speed</td><td>Fast to create, switch (no kernel call needed)</td></tr>
+      <tr><td>Main problem</td><td>If ONE thread makes a blocking system call → the ENTIRE PROCESS blocks (all threads stop)</td></tr>
+      <tr><td>Multi-CPU</td><td>NO — all threads in one process run on one CPU</td></tr>
+    </table>
+    <span class="label" style="margin-top:12px;">KLT — Kernel-Level Threads</span>
+    <table class="answer-table">
+      <tr><th>Feature</th><th>KLT</th></tr>
+      <tr><td>Managed by</td><td>Kernel (OS knows about each individual thread)</td></tr>
+      <tr><td>Kernel aware?</td><td>YES</td></tr>
+      <tr><td>Speed</td><td>Slower (each thread operation requires kernel call)</td></tr>
+      <tr><td>Blocking call</td><td>Only the blocking thread suspends; others continue</td></tr>
+      <tr><td>Multi-CPU</td><td>YES — threads of same process can run on multiple CPUs</td></tr>
+      <tr><td>Example</td><td>Windows uses KLT</td></tr>
+    </table>
+    <span class="label" style="margin-top:12px;">Jacketing Technique</span>
+    <p>A technique used with ULT to solve the blocking problem. A <strong>jacket</strong> wraps a blocking system call: before calling the OS, it checks if the I/O device is busy. If it would block, it switches to another thread instead of issuing the blocking call. This converts a <strong>blocking system call into a non-blocking one</strong>.</p>
+    <div class="hot-box">🔥 Exact exam MCQ: "The jacketing technique is used to:" → "Convert a blocking system call into a non-blocking system call."</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>ULT: Fast, kernel-blind, one block = ALL block · KLT: Slower, kernel-aware, one block = ONE blocks</strong><br>
+    ULT problem = "all eggs in one basket" — one thread's block kills all.<br>
+    Jacketing = the fix for ULT: wrap the blocking call, check first, switch if blocked.<br>
+    Windows = KLT example.
+  </div>
+</div>
+
+<!-- Q58 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">58</span>
+    <span class="q-badge" style="background:var(--c4)">THREADS</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is thread synchronization required for? (Q7.6 from previous exam)</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>Thread synchronization is required because threads within the same process share:</p>
+    <ul>
+      <li>The same <strong>address space</strong> (same memory)</li>
+      <li>The same <strong>global variables</strong></li>
+      <li>The same <strong>open files</strong></li>
+    </ul>
+    <p>This sharing means multiple threads can simultaneously read and write the same data, leading to <strong>race conditions</strong> and data corruption. Synchronization mechanisms (mutexes, semaphores, monitors) ensure that only one thread accesses shared data at a time (mutual exclusion).</p>
+    <div class="hot-box">🔥 Exact exam MCQ: "Thread synchronization is required because:" → "All of the above" (shared address space + shared global variables + shared files — ALL THREE reasons).</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Sync needed because ALL 3: same address space, same global vars, same files</strong><br>
+    The exam answer is "All of the above" — don't just pick one reason. All three sharing scenarios are reasons for needing synchronization.
+  </div>
+</div>
+
+<!-- Q59 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">59</span>
+    <span class="q-badge" style="background:var(--c4)">THREAD EXEC</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">On a Uniprocessor with multiprogramming, how does execution pass from one thread to another? (Q8 from previous exam)</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>On a uniprocessor, multiprogramming enables the interleaving of multiple threads within multiple processes. Execution passes from one thread to another in two ways:</p>
+    <ol>
+      <li>The currently running thread is <strong>BLOCKED</strong> — it requests I/O or waits for an event; the dispatcher picks the next ready thread.</li>
+      <li>The thread's <strong>TIME SLICE (QUANTUM) IS EXHAUSTED</strong> — the clock interrupt fires, the dispatcher preempts the current thread and schedules the next one.</li>
+    </ol>
+    <p>The <strong>dispatcher</strong> (part of the microkernel) is responsible for this switching. It manages the quantum and the ready queue.</p>
+    <div class="hot-box">🔥 This appeared as exact exam Q8. Short answer: "when the running thread is blocked OR when its time slice is exhausted."</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Two ways to switch threads: (1) Thread blocks on I/O · (2) Quantum expires</strong><br>
+    Blocked = voluntary switch. Quantum expires = forced switch (preemption).<br>
+    Both are handled by the Dispatcher (in microkernel).
+  </div>
+</div>
+
+<!-- Q60 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">60</span>
+    <span class="q-badge" style="background:var(--c4)">SISD/MIMD</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What are SISD, SIMD, MISD, and MIMD? Which was never implemented?</div>
+  <div class="answer">
+    <table class="answer-table">
+      <tr><th>Category</th><th>Instructions</th><th>Data</th><th>Example</th><th>Notes</th></tr>
+      <tr><td><strong>SISD</strong></td><td>Single</td><td>Single</td><td>Traditional uniprocessor</td><td>Classic von Neumann architecture</td></tr>
+      <tr><td><strong>SIMD</strong></td><td>Single</td><td>Multiple</td><td>GPU, vector processors</td><td>One instruction operates on many data elements simultaneously</td></tr>
+      <tr><td><strong>MISD</strong></td><td>Multiple</td><td>Single</td><td>—</td><td><strong>NEVER IMPLEMENTED</strong> — theoretical only</td></tr>
+      <tr><td><strong>MIMD</strong></td><td>Multiple</td><td>Multiple</td><td>SMP (multiprocessors)</td><td>Multiple CPUs, each running its own instruction stream</td></tr>
+    </table>
+    <div class="hot-box">🔥 MISD = never implemented! This is a frequent exam question. SMP falls under MIMD.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>SISD=1CPU · SIMD=GPU · MISD=NEVER · MIMD=SMP</strong><br>
+    "Single-Is-Simple-Delivery, Single-Instructions-Multiple-Drivers, Multiple-Instructions-Single-Destination(NEVER), Multiple-Instructions-Multiple-Drivers"<br>
+    Just remember: MISD = never built. Everything else is real.
+  </div>
+</div>
+
+<!-- Q61 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">61</span>
+    <span class="q-badge" style="background:var(--c4)">SMP</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is SMP (Symmetric Multiprocessing)? What are its key characteristics?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>SMP (Symmetric Multiprocessing)</strong> is a type of parallel computer architecture where:</p>
+    <ul>
+      <li>There are <strong>two or more processors</strong> on a single machine</li>
+      <li>All processors <strong>share the same main memory</strong> and I/O facilities</li>
+      <li>All processors are connected via a system bus or interconnect</li>
+      <li><strong>Any processor can run the OS kernel</strong> (symmetric — no master CPU)</li>
+      <li>The OS performs <strong>self-scheduling</strong> — any free processor can pick up the next ready process</li>
+    </ul>
+    <p><strong>SMP Design Considerations:</strong></p>
+    <ol>
+      <li>Concurrent processes/threads (multiple running at same time on different CPUs)</li>
+      <li>Scheduling (must be coordinated across multiple CPUs)</li>
+      <li>Synchronization (critical sections with multiple CPUs accessing same memory)</li>
+      <li>Memory management (cache coherence)</li>
+      <li>Reliability and fault tolerance</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>SMP = Multiple CPUs, shared memory, ANY CPU can run the kernel</strong><br>
+    "Symmetric" = no master CPU. Every CPU is equal. Any can pick up any process.<br>
+    Belongs to MIMD category. Key phrase: "self-scheduling."
+  </div>
+</div>
+
+<!-- Q62 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">62</span>
+    <span class="q-badge" style="background:var(--c4)">MICROKERNEL</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is a Microkernel? What are its 3 essential functions? What are its 7 benefits?</div>
+  <div class="answer">
+    <span class="label">Definition</span>
+    <p>A <strong>microkernel</strong> is an OS design where the kernel is kept as <strong>small as possible</strong> — only the absolutely essential functions stay in the privileged kernel space. Everything else (file system, device drivers, virtual memory manager, GUI) runs as <strong>separate server processes</strong> in user space.</p>
+    <span class="label" style="margin-top:10px;">3 Essential Microkernel Functions (ALL kernels must have these)</span>
+    <ol>
+      <li><strong>Low-level memory management</strong> — Managing the mapping from virtual to physical addresses (page tables). Does NOT handle full virtual memory policy — just the mechanism.</li>
+      <li><strong>Inter-Process Communication (IPC)</strong> — Mechanism for processes (including user-space servers) to communicate. Since services run as separate processes, they must communicate via IPC.</li>
+      <li><strong>Basic I/O and interrupt management</strong> — Receiving and routing interrupts to the appropriate user-space handler process.</li>
+    </ol>
+    <span class="label" style="margin-top:10px;">7 Benefits of Microkernel Design</span>
+    <ol>
+      <li><strong>Uniform interfaces</strong> — Processes don't need to know if a service is kernel or user-space — they always use the same IPC message interface.</li>
+      <li><strong>Extensibility</strong> — New services can be added in user space without recompiling the kernel.</li>
+      <li><strong>Flexibility</strong> — Existing services can be modified or replaced without affecting the kernel.</li>
+      <li><strong>Portability</strong> — Only the small kernel needs to be rewritten when porting to new hardware.</li>
+      <li><strong>Reliability</strong> — A crash in a user-space driver/service doesn't crash the whole OS (unlike monolithic kernel where a driver bug crashes everything).</li>
+      <li><strong>Distributed system support</strong> — IPC-based design maps naturally to network communication in distributed systems.</li>
+      <li><strong>Object-oriented design</strong> — Modular, clean component design.</li>
+    </ol>
+    <div class="hot-box">🔥 The dispatcher (quantum manager / scheduler) lives in the microkernel. When the number of processes increases, the dispatcher DECREASES the quantum to share CPU fairly.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize — 3 functions</div>
+    <span class="big-mnemonic">M · I · I</span>
+    <strong>M</strong>emory (virtual→physical mapping) · <strong>I</strong>PC · <strong>I</strong>/O &amp; interrupt mgmt<br>
+    "Microkernels Include Interrupts" — 3 things. Everything else → user space.<br>
+    7 benefits: <strong>U-EFPRDO</strong> → Uniform, Extensible, Flexible, Portable, Reliable, Distributed, OO
+  </div>
+</div>
+
+<!-- Q63 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">63</span>
+    <span class="q-badge" style="background:var(--c4)">QUANTUM</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">What is Quantum (Q)? If the number of processes increases, does the dispatcher increase or decrease Q?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p>The <strong>Quantum (Q)</strong> is the maximum number of CPU clock cycles (or instructions) allocated to a process before the dispatcher preempts it and gives the CPU to the next process.</p>
+    <p>The quantum is managed by the <strong>dispatcher</strong> (which lives in the microkernel).</p>
+    <p><strong>If number of processes increases → dispatcher DECREASES the quantum</strong></p>
+    <p>Why? If Q stays large and there are many processes, each process waits a long time for its turn (poor response time). By decreasing Q, every process gets a turn more frequently — the system remains responsive. If Q is NOT decreased, the system degenerates to essentially FIFO (one process hogs the CPU for a long time).</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>More processes → SMALLER quantum (so everyone gets turns faster)</strong><br>
+    Think of a pizza: more people = smaller slices (each person still gets a turn, just a smaller piece).<br>
+    Large Q + many processes = long wait = poor responsiveness = bad.
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SECTION 5 — CALCULATIONS BANK
+═══════════════════════════════════════════════════════════════════ -->
+
+<div class="section-header sec-calc">
+  <h2>Section 5 — Calculations Bank</h2>
+  <p>CPU Utilization % · Batch vs Multiprogramming · Shared Variables · Flags · Quantum Timing</p>
+</div>
+
+<!-- Q64 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">64</span>
+    <span class="q-badge" style="background:var(--c5)">CPU UTIL %</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">How do you compute CPU Utilization %? Give the full method + solved example 1 (from actual exam).</div>
+  <div class="answer">
+    <span class="label">Method</span>
+    <ol>
+      <li>List all operations and classify each: <strong>CPU time</strong> (execute instructions) or <strong>I/O time</strong> (read/write to file/disk)</li>
+      <li>Calculate the time for each operation using the given rates</li>
+      <li>Sum all CPU times → Total CPU time</li>
+      <li>Sum ALL times (CPU + I/O) → Total time</li>
+      <li>CPU Utilization % = (Total CPU time) ÷ (Total time) × 100</li>
+    </ol>
+    <div class="hot-box">🔥 KEY RULE: "Execute instructions" = CPU time. "Read/Write from/to file" = I/O time (NOT CPU time). This is where most students make mistakes.</div>
+    <span class="label" style="margin-top:12px;">Solved Example 1 (from actual exam Q3A)</span>
+    <div class="code-box">Given:
+  Read 1 record from file:           25 µs  → I/O time
+  Execute 1000 arithmetic instr:      5 µs  → CPU time ✓
+  Write 1 record to file:            25 µs  → I/O time
+  Execute 500 logic instructions:     5 µs  → CPU time ✓
+
+Calculation:
+  Total CPU time = 5 + 5 = 10 µs
+  Total time = 25 + 5 + 25 + 5 = 60 µs
+
+  CPU % = 10 ÷ 60 = 1/6 ≈ 16.6%
+
+ANSWER: CPU Utilization = 16.6%</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>CPU% = CPU time ÷ Total time</strong><br>
+    I/O (read/write) = NOT CPU. Instructions = CPU.<br>
+    Formula: always identify CPU vs I/O first, then divide. Result is almost always small (&lt;30% typically).
+  </div>
+</div>
+
+<!-- Q65 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">65</span>
+    <span class="q-badge" style="background:var(--c5)">CPU UTIL %</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">Solved Example 2 — PRIME-A program (from actual exam Q4)</div>
+  <div class="answer">
+    <span class="label">Problem Statement</span>
+    <p>To read or write a record from/to a file: 30 µs. To execute 500 instructions: 10 µs. Compute CPU utilization if: 1000 instructions executed + 2 reads + 2 writes.</p>
+    <div class="code-box">Given:
+  Read/Write rate: 30 µs per record
+  Execution rate:  10 µs per 500 instructions
+
+Operations:
+  Read 2 records:    2 × 30 = 60 µs   → I/O time
+  Write 2 records:   2 × 30 = 60 µs   → I/O time
+  Execute 1000 instr: (1000÷500) × 10 = 2 × 10 = 20 µs → CPU time ✓
+
+Total time = 60 + 60 + 20 = 140 µs
+Total CPU time = 20 µs
+
+CPU % = 20 ÷ 140 = 2/14 = 1/7 ≈ 14.28%
+
+ANSWER: CPU Utilization = 14.28%</div>
+    <p><strong>Key step:</strong> Scale the instruction time correctly. If 500 instr = 10µs, then 1000 instr = 20µs (double it).</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Scale instructions proportionally: if X instr = T µs, then 2X instr = 2T µs</strong><br>
+    Always calculate the instruction time as: (number of instructions ÷ rate_instructions) × rate_time<br>
+    Example: 1000 instr ÷ 500 instr/period × 10 µs/period = 20 µs
+  </div>
+</div>
+
+<!-- Q66 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">66</span>
+    <span class="q-badge" style="background:var(--c5)">BATCH vs MP</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">Batch vs Multiprogramming: total time and throughput. Solved example with 4 jobs (from actual exam Q3B).</div>
+  <div class="answer">
+    <span class="label">Problem</span>
+    <p>Available memory = 300MB. 4 jobs: J1 (CPU-heavy, 5min, 60MB), J2 (I/O-heavy, 10min, 100MB), J3 (I/O-heavy, 10min, 75MB), J4 (CPU-heavy, 5min, 65MB). Minimal CPU for J2 and J3. Continuous disk and printer use by J2.</p>
+    <div class="code-box">STEP 1: Memory check
+  J1+J2+J3+J4 = 60+100+75+65 = 300MB = available → ALL FIT ✓
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PART A: SIMPLE BATCH (Sequential)
+  Jobs run one at a time, in order:
+  J1: 0→5 min  |  J2: 5→15 min  |  J3: 15→25 min  |  J4: 25→30 min
+  
+  Total time = 5+10+10+5 = 30 minutes
+  
+  Throughput = 4 jobs ÷ (30/60 hours) = 4 ÷ 0.5 = 8 jobs/hour
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PART B: MULTIPROGRAMMING (Concurrent)
+  All 4 jobs run simultaneously (they fit in 300MB)
+  J1 (CPU) and J4 (CPU): use the CPU
+  J2 (I/O) and J3 (I/O): use disk/printer — don't compete with CPU jobs
+  
+  Longest job = J2 or J3 = 10 minutes
+  Total time = 10 minutes (everything finishes by then)
+  
+  Throughput = 4 jobs ÷ (10/60 hours) = 4 ÷ (1/6) = 24 jobs/hour</div>
+    <div class="hot-box">🔥 Key insight: In multiprogramming, CPU-heavy and I/O-heavy jobs overlap perfectly. CPU jobs use the processor while I/O jobs use disk/printer. Total time = longest job, not sum of all.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Batch: total time = SUM of all job durations · Throughput = jobs/hr</strong><br>
+    <strong>Multiprogramming: total time = LONGEST job · Throughput = much higher</strong><br>
+    Throughput formula: X jobs ÷ (total_minutes ÷ 60) = X jobs per HOUR<br>
+    Always check memory first: if total memory &gt; available → can't multiprogramme all at once!
+  </div>
+</div>
+
+<!-- Q67 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">67</span>
+    <span class="q-badge" style="background:var(--c5)">SHARED VARS</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">Shared Variables / Concurrency: method + complete solved example for all 4 orders (from actual exam Q12).</div>
+  <div class="answer">
+    <span class="label">Method</span>
+    <ol>
+      <li>Read the initial values of ALL shared variables</li>
+      <li>Execute Process 1: calculate its formula using CURRENT variable values → update the affected variable</li>
+      <li>Execute Process 2: calculate its formula using UPDATED values → update the affected variable</li>
+      <li>Execute Process 3: calculate its formula using UPDATED values → final result</li>
+    </ol>
+    <div class="hot-box">🔥 CRITICAL: ALWAYS use the most recently updated values. If P1 changes T1, then P2 reads the NEW T1. Never read original values after a process has run!</div>
+    <span class="label" style="margin-top:12px;">Problem Setup: T1=4, T2=3</span>
+    <p>P1: T2 = T1 × T2 &nbsp;·&nbsp; P2: T1 = T2 + T1 &nbsp;·&nbsp; P3: T2 = T1 − T2</p>
+    <div class="code-box">a) ORDER: P1 → P2 → P3
+   P1: T2 = 4×3 = 12          → T1=4,  T2=12
+   P2: T1 = 12+4 = 16         → T1=16, T2=12
+   P3: T2 = 16-12 = 4         → T1=16, T2=4     ✓ FINAL: T1=16, T2=4
+
+b) ORDER: P1 → P3 → P2
+   P1: T2 = 4×3 = 12          → T1=4,  T2=12
+   P3: T2 = 4-12 = -8         → T1=4,  T2=-8
+   P2: T1 = -8+4 = -4         → T1=-4, T2=-8    ✓ FINAL: T1=-4, T2=-8
+
+c) ORDER: P2 → P1 → P3
+   P2: T1 = 3+4 = 7           → T1=7,  T2=3
+   P1: T2 = 7×3 = 21          → T1=7,  T2=21
+   P3: T2 = 7-21 = -14        → T1=7,  T2=-14   ✓ FINAL: T1=7, T2=-14
+
+d) ORDER: P3 → P2 → P1
+   P3: T2 = 4-3 = 1           → T1=4,  T2=1
+   P2: T1 = 1+4 = 5           → T1=5,  T2=1
+   P1: T2 = 5×1 = 5           → T1=5,  T2=5     ✓ FINAL: T1=5, T2=5</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>After each process runs: UPDATE the variable immediately, then pass updated value to next process</strong><br>
+    Think of it as a relay race — each runner (process) picks up where the last one left off. No going back to start.<br>
+    Draw a table: | Process | T1 value | T2 value | — fill it row by row. Never re-read initial values after step 1.
+  </div>
+</div>
+
+<!-- Q68 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">68</span>
+    <span class="q-badge" style="background:var(--c5)">QUANTUM TIMING</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">How do you calculate execution timing with a quantum Q? Full method with example.</div>
+  <div class="answer">
+    <span class="label">Method</span>
+    <ol>
+      <li>List processes and their instruction counts</li>
+      <li>Determine bursts: each burst = min(Q, remaining instructions). A full burst = Q instructions. Last burst = remaining instructions (may be &lt;Q).</li>
+      <li>Write the execution sequence (round-robin): all processes take their burst in order, then repeat until all done.</li>
+      <li>For timing: multiply each burst by (ns per instruction). Sum up chronologically to find when each process finishes.</li>
+    </ol>
+    <span class="label" style="margin-top:10px;">Worked Example: A(7), B(5), C(6), D(7), Q=3, 2ns per instruction</span>
+    <div class="code-box">Burst breakdown:
+  A: 3, 3, 1  (total=7 ✓)
+  B: 3, 2     (total=5 ✓)
+  C: 3, 3     (total=6 ✓)
+  D: 3, 3, 1  (total=7 ✓)
+
+Execution sequence (round-robin): A B C D | A B C D | A D
+Position: 1:A(3) 2:B(3) 3:C(3) 4:D(3) 5:A(3) 6:B(2) 7:C(3) 8:D(3) 9:A(1) 10:D(1)
+
+Time per slot (2ns/instr):
+  Slot 1: A→3×2=6ns  | Cumulative: 6
+  Slot 2: B→3×2=6ns  | Cumulative: 12
+  Slot 3: C→3×2=6ns  | Cumulative: 18
+  Slot 4: D→3×2=6ns  | Cumulative: 24
+  Slot 5: A→3×2=6ns  | Cumulative: 30
+  Slot 6: B→2×2=4ns  | Cumulative: 34  ← B FINISHES at 34ns
+  Slot 7: C→3×2=6ns  | Cumulative: 40  ← C FINISHES at 40ns
+  Slot 8: D→3×2=6ns  | Cumulative: 46
+  Slot 9: A→1×2=2ns  | Cumulative: 48  ← A FINISHES at 48ns
+  Slot 10:D→1×2=2ns  | Cumulative: 50  ← D FINISHES at 50ns</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Step 1: Write bursts. Step 2: Write sequence. Step 3: Multiply each burst × ns/instr. Step 4: Running total.</strong><br>
+    A process finishes at the cumulative time when its LAST burst ends.<br>
+    Partial (final) burst = remaining instructions × ns/instr (NOT Q × ns/instr).
+  </div>
+</div>
+
+<!-- Q69 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">69</span>
+    <span class="q-badge" style="background:var(--c5)">FLAGS CALC</span>
+    <span class="hot-tag">🔥 EXAM</span>
+  </div>
+  <div class="q-text">Solve: 0110 + 0011 (4-bit 2's complement). Find result, OF, SF, ZF.</div>
+  <div class="answer">
+    <div class="code-box">  0110   (+6 in 4-bit 2's complement, MSB=0, POSITIVE)
++ 0011   (+3 in 4-bit 2's complement, MSB=0, POSITIVE)
+──────
+  1001   (result)
+
+Step 1 — Check OF:
+  Operand 1 sign: MSB=0 → POSITIVE
+  Operand 2 sign: MSB=0 → POSITIVE
+  Result sign:    MSB=1 → NEGATIVE
+  Both same sign (positive) but result is different sign (negative)
+  → OF = 1  (overflow occurred)
+
+Step 2 — Check SF:
+  Result MSB = 1 → NEGATIVE
+  → SF = 1
+
+Step 3 — Check ZF:
+  Result = 1001 ≠ 0000
+  → ZF = 0
+
+FINAL ANSWER: OF=1, SF=1, ZF=0
+Note: 6+3=9, but 4-bit 2's complement max positive = +7, so 9 overflows → correct!</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize — Flag Shortcut</div>
+    <strong>Do the addition → Look at MSBs of operands and result → Apply rules</strong><br>
+    OF=1: same sign in, different sign out<br>
+    SF=1: result MSB=1 (negative)<br>
+    ZF=1: result=0000<br>
+    Check order: OF first (sign comparison), then SF (result MSB), then ZF (is result zero)
+  </div>
+</div>
+
+<!-- Q70 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">70</span>
+    <span class="q-badge" style="background:var(--c5)">PERMUTATIONS</span>
+  </div>
+  <div class="q-text">How do you list all possible execution traces for n processes? How many are there?</div>
+  <div class="answer">
+    <span class="label">Full Answer</span>
+    <p><strong>For n processes, the total number of possible execution orderings = n! (n factorial)</strong></p>
+    <ul>
+      <li>2 processes (A, B): 2! = 2 orderings → AB, BA</li>
+      <li>3 processes (A, B, C): 3! = 6 orderings → ABC, ACB, BAC, BCA, CAB, CBA</li>
+      <li>4 processes: 4! = 24 orderings</li>
+    </ul>
+    <p><strong>With Quantum Q:</strong> Each process runs Q instructions per turn (except possibly last turn). The execution sequence is the round-robin order. Example with Q=2, processes A(4 instr), B(3 instr):</p>
+    <div class="code-box">Q=2: A(2) → B(2) → A(2) → B(1)
+Sequence: AA BB AA B (notation: process letter per instruction)</div>
+    <p>The <strong>timing</strong> for each trace depends on the ns per instruction and the round-robin order. (See Q68 for full timing method.)</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>n processes → n! possible orderings</strong><br>
+    3 processes → 6 orderings. 4 → 24. Etc.<br>
+    Systematic listing: fix first, permute rest. ABC, then fix A change BC→CB=ACB. Then fix B: BAC, BCA. Then fix C: CAB, CBA.
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SECTION 6 — PREVIOUS EXAM QUESTIONS
+═══════════════════════════════════════════════════════════════════ -->
+
+<div class="section-header sec-exam">
+  <h2>Section 6 — All Previous Exam Questions</h2>
+  <p>Exact wording from past CSI 402 exams with complete model answers</p>
+</div>
+
+<!-- Q71 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">71</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM MCQ</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">MCQ Set — 12 questions from actual exam (4 pts each / 2 pts each on your exam)</div>
+  <div class="answer">
+    <table class="answer-table">
+      <tr><th>#</th><th>Question</th><th>✅ Correct Answer</th><th>Why</th></tr>
+      <tr><td>1</td><td>The address of a memory location will be placed, when read, in:</td><td><strong>B) MAR</strong></td><td>MAR = Memory Address Register = stores the address (location)</td></tr>
+      <tr><td>2</td><td>The number of processes completed per unit time is:</td><td><strong>B) Throughput</strong></td><td>Throughput = jobs/hour or jobs/minute — the rate of completion</td></tr>
+      <tr><td>3</td><td>The state of a process is defined by:</td><td><strong>D) The current activity of the process</strong></td><td>State = what it's doing RIGHT NOW, not past or future</td></tr>
+      <tr><td>4</td><td>What is an operating system?</td><td><strong>D) All of the above</strong></td><td>It's all 3: manages hardware, provides services to apps, interfaces hardware with apps</td></tr>
+      <tr><td>5</td><td>Which error will be handled by the OS?</td><td><strong>B) Lack of paper in printer</strong></td><td>OS handles I/O device errors. Power failure and network failure are hardware problems the OS cannot control</td></tr>
+      <tr><td>6</td><td>Systems which allow only one process execution at a time:</td><td><strong>C) Unitasking systems</strong></td><td>NOT Uniprogramming (not a standard term here), NOT Uniprocessing (refers to hardware). Unitasking = 1 task at a time</td></tr>
+      <tr><td>7</td><td>In an OS, each process has its own:</td><td><strong>A) Address space and global variables</strong></td><td>Each process has an isolated address space. (Trick: threads share open files, alarms etc — processes don't share with other processes)</td></tr>
+      <tr><td>8</td><td>A process can be terminated due to:</td><td><strong>D) All of the above</strong></td><td>Normal exit, fatal error, AND being killed by another process — all are valid termination reasons</td></tr>
+      <tr><td>9</td><td>Address of next instruction to be executed is provided by:</td><td><strong>B) Program Counter</strong></td><td>PC always points to the NEXT instruction</td></tr>
+      <tr><td>10</td><td>Which is NOT a state of a process?</td><td><strong>B) Old</strong></td><td>"Old" is not a process state. Valid states: New, Ready, Running, Waiting/Blocked, Terminated</td></tr>
+      <tr><td>11</td><td>The Process Control Block is:</td><td><strong>D) A block in memory</strong></td><td>PCB is a data structure stored as a block in MAIN MEMORY (not secondary storage, not just a variable)</td></tr>
+      <tr><td>12</td><td>The entry of all PCBs of current processes is in:</td><td><strong>C) Process Table</strong></td><td>Process Table = the master table containing all PCBs. Not "Process Register" or "Program Counter."</td></tr>
+    </table>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize — MCQ Traps</div>
+    <strong>Q4 "What is OS" = ALL OF THE ABOVE · Q5 "OS handles" = printer only (NOT power/network) · Q6 "one process" = Unitasking · Q10 "NOT a state" = Old · Q11 "PCB is" = block in memory · Q12 "all PCBs" = Process Table</strong>
+  </div>
+</div>
+
+<!-- Q72 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">72</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q2: Explain the services provided by the Operating System.</div>
+  <div class="answer">
+    <p>The OS provides 7 services:</p>
+    <ol>
+      <li><strong>Program development</strong> — editors, debuggers, and other tools to assist the programmer</li>
+      <li><strong>Program execution</strong> — loading into memory, initializing I/O devices and files, starting execution</li>
+      <li><strong>Access to I/O devices</strong> — uniform interface to keyboards, monitors, printers, disks</li>
+      <li><strong>Controlled access to files</strong> — understanding file format, protection, access control</li>
+      <li><strong>System access</strong> — controlled access to shared resources; protection against unauthorized users</li>
+      <li><strong>Error detection and response</strong> — detecting hardware/software errors and responding appropriately</li>
+      <li><strong>Accounting</strong> — collecting usage statistics, monitoring performance parameters</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">P · P · I · F · S · E · A</span>
+    "Please Please Install Files, Seriously Every Administrator does this"
+  </div>
+</div>
+
+<!-- Q73 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">73</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q2B: Explain what are the three components of a process.</div>
+  <div class="answer">
+    <p>A process is comprised of:</p>
+    <ol>
+      <li><strong>An executable program</strong> (program code) — the instructions, possibly shared with other processes running the same program</li>
+      <li><strong>A set of data</strong> — user-defined variables that the program manipulates (stack, heap, global variables)</li>
+      <li><strong>A number of attributes describing the state of the process</strong> — the execution context: current state (Running/Ready/etc.), PC, registers, PCB information</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Code · Data · Attributes (CDA)</strong><br>
+    "Code Does Anything" — the three mandatory components. Third one = execution context = attributes.
+  </div>
+</div>
+
+<!-- Q74 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">74</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q2C: What measurements are used for CPU↔Cache and Cache↔Main Memory transfer? Why the difference?</div>
+  <div class="answer">
+    <p><strong>CPU ↔ Cache:</strong> Data is transferred one <strong>word</strong> at a time (word transfer). This is fast and appropriate because cache access is nearly as fast as CPU speed.</p>
+    <p><strong>Cache ↔ Main Memory:</strong> Data is transferred in <strong>blocks</strong> (block transfer). A block = multiple words. This is done to amortize the high latency of main memory access.</p>
+    <p><strong>Why the difference?</strong> The speed gap. Cache is 50–100× faster than main memory. Loading a full block at once exploits <em>spatial locality</em> — if you need data at address N, you will likely need N+1, N+2, etc. very soon. A block transfer makes that future access instant (already in cache).</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>CPU↔Cache = WORD · Cache↔RAM = BLOCK · Reason = Speed gap + Spatial Locality</strong><br>
+    Spatial locality = if you need one thing, you'll need nearby things soon too → load a block.
+  </div>
+</div>
+
+<!-- Q75 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">75</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q3A: Compute the CPU utilization % given the system utilization table.</div>
+  <div class="answer">
+    <p>Given: Read 1 record = 25µs, Execute 1000 arith = 5µs, Write 1 record = 25µs, Execute 500 logic = 5µs.</p>
+    <div class="code-box">CPU time = 5 (arith) + 5 (logic) = 10 µs
+Total time = 25 + 5 + 25 + 5 = 60 µs
+CPU% = 10/60 = 1/6 = 16.6%</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Answer: 16.6%</strong> — Read/Write = I/O. Instructions = CPU. Quick ratio.
+  </div>
+</div>
+
+<!-- Q76 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">76</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q3B: Batch vs multiprogramming for 4 jobs (see setup). Total time and throughput for each.</div>
+  <div class="answer">
+    <div class="code-box">Memory check: 60+100+75+65 = 300MB = available ✓ (all fit)
+
+BATCH: 5+10+10+5 = 30 minutes → Throughput = 4/(30/60) = 8 jobs/hour
+MULTIPROGRAMMING: longest = 10 min → Throughput = 4/(10/60) = 24 jobs/hour</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Batch=30min, 8/hr · Multiprogramming=10min, 24/hr</strong> — 3× speedup!
+  </div>
+</div>
+
+<!-- Q77 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">77</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q4 (PRIME-A): Compute CPU utilization. Read/Write = 30µs each, 500 instr = 10µs. Need 1000 instr + 2 reads + 2 writes.</div>
+  <div class="answer">
+    <div class="code-box">Read 2 records:    2×30 = 60 µs  (I/O)
+Write 2 records:   2×30 = 60 µs  (I/O)
+Execute 1000 instr: (1000÷500)×10 = 20 µs  (CPU)
+─────────────────────────────────
+Total = 140 µs · CPU = 20 µs
+
+CPU% = 20/140 = 14.28%</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Answer: 14.28%</strong> — Scale instructions: 1000÷500=2, 2×10=20µs. Then 20/140.
+  </div>
+</div>
+
+<!-- Q78 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">78</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q5: 0110 + 0011 in 4-bit 2's complement. Compute result, OF, SF, ZF.</div>
+  <div class="answer">
+    <div class="code-box">0110 (+6) + 0011 (+3) = 1001
+OF=1 (both positive, result negative — sign mismatch)
+SF=1 (result MSB=1, negative)
+ZF=0 (result ≠ 0000)</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Answer: OF=1, SF=1, ZF=0</strong> — 6+3=9 overflows 4-bit signed range (+7 max).
+  </div>
+</div>
+
+<!-- Q79 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">79</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q6: Trace PC, AC, IR through machine language program. Opcodes: 0001=LOAD, 0010=STORE, 0101=ADD, 0011=SUBTRACT. (Answer given as PC=204, AC=0005, IR=2510)</div>
+  <div class="answer">
+    <p><strong>Method (apply to any trace):</strong></p>
+    <ol>
+      <li>Start with given PC value and empty AC</li>
+      <li>Fetch instruction at address [PC] → put in IR, increment PC</li>
+      <li>Decode opcode (first 4 bits) using the given table</li>
+      <li>Execute: if LOAD → AC = mem[address], if ADD → AC = AC + mem[address], if STORE → mem[address] = AC</li>
+      <li>Repeat until end of program</li>
+    </ol>
+    <p><strong>Final answers for this specific problem: PC=204, AC=0005, IR=2510</strong></p>
+    <p>PC = next address after last instruction executed. IR = last instruction fetched. AC = accumulated result of all arithmetic operations.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Trace method: Fetch (IR=mem[PC], PC++) → Decode opcode → Execute → repeat</strong><br>
+    Final PC = one past the last instruction. IR = last instruction. AC = final computed value.<br>
+    The opcode table IS given on the exam — you just apply it mechanically.
+  </div>
+</div>
+
+<!-- Q80 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">80</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM MCQ</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q7: 6 Thread MCQs</div>
+  <div class="answer">
+    <table class="answer-table">
+      <tr><th>#</th><th>Question</th><th>✅ Answer</th><th>Why</th></tr>
+      <tr><td>1</td><td>Which is NOT shared by threads: PC, Stack, Both, None?</td><td><strong>D) None of the mentioned</strong></td><td>Both PC AND Stack are NOT shared (each thread has its own). "None of the mentioned" = neither A nor B alone is the complete answer. The correct answer is that BOTH are private.</td></tr>
+      <tr><td>2</td><td>Time to create new thread in existing process vs new process:</td><td><strong>B) Less than</strong></td><td>Thread creation is faster — no new address space, no new PCB setup, just add a thread context to existing process</td></tr>
+      <tr><td>3</td><td>Jacketing technique is used to:</td><td><strong>A) Convert blocking system call to non-blocking</strong></td><td>Jacketing wraps the blocking call to avoid blocking the entire process when one ULT would block</td></tr>
+      <tr><td>4</td><td>Termination of process terminates:</td><td><strong>C) All threads within the process</strong></td><td>Threads share address space — process terminates → everything in it terminates</td></tr>
+      <tr><td>5</td><td>Register context and stacks are deallocated when thread:</td><td><strong>A) Terminates</strong></td><td>Resources freed only at termination. Blocking/unblocking just suspends/resumes the thread; it keeps its stack and registers.</td></tr>
+      <tr><td>6</td><td>Thread synchronization is required because:</td><td><strong>D) All of the mentioned</strong></td><td>All three (shared address space + shared global variables + shared files) are reasons for needing synchronization</td></tr>
+    </table>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize — Thread MCQ Traps</div>
+    <strong>Q1: "None of mentioned" = BOTH PC and Stack are private (trick answer)</strong><br>
+    <strong>Q5: Deallocated at TERMINATION, not block/unblock/spawn</strong><br>
+    <strong>Q6: ALL of the above — all three sharing reasons require synchronization</strong>
+  </div>
+</div>
+
+<!-- Q81 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">81</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q8: On a Uniprocessor, how does execution pass from one thread to another? (3 threads in 2 processes interleaved)</div>
+  <div class="answer">
+    <p>Execution passes from one thread to another in either of two ways:</p>
+    <ol>
+      <li><strong>The currently running thread is blocked</strong> — it requests I/O or must wait for an event. The dispatcher picks the next ready thread.</li>
+      <li><strong>Its time slice (quantum) is exhausted</strong> — the clock interrupt fires, preempting the current thread. The dispatcher schedules the next one.</li>
+    </ol>
+    <p>This is managed by the <strong>dispatcher</strong>, which resides in the microkernel and tracks the ready queue and quantum.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Two ways: (1) Thread blocks on I/O · (2) Time quantum expires</strong><br>
+    Blocked = voluntary. Quantum expires = forced by dispatcher. Both result in a thread switch.
+  </div>
+</div>
+
+<!-- Q82 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">82</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q9: Explain the Seven-State figure (process suspension/resumption).</div>
+  <div class="answer">
+    <p>When all processes in main memory are in the <strong>Blocked state</strong>, the OS can suspend one process by putting it in the <strong>Suspend state</strong> and transferring it to the hard disk. The freed space in main memory can then be used to bring in another process.</p>
+    <p>The OS has two choices for the new process: admit a newly created one, or bring in a previously suspended one. <strong>Preference should be to bring in a previously suspended process</strong>, to provide it with service rather than increasing total system load.</p>
+    <p>All suspended processes were in the Blocked state at suspension time. It would not help to bring a still-blocked process back into memory — it still cannot execute. When the event a suspended process was waiting for occurs, the process moves from <strong>Blocked/Suspended</strong> to <strong>Ready/Suspended</strong>. It is now ready to run and can be activated back into main memory.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>ALL blocked → OS swaps one to disk (Suspend) → free RAM → load new/old process</strong><br>
+    Prefer: load previously suspended process (not new) → avoid increasing load.<br>
+    Blocked/Suspend → event occurs → Ready/Suspend → activated → Ready → Running
+  </div>
+</div>
+
+<!-- Q83 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">83</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q10: Why is a process table needed in timesharing? Is it needed if only one process exists?</div>
+  <div class="answer">
+    <p><strong>Why needed in timesharing:</strong></p>
+    <ul>
+      <li>Must be maintained to manage all running processes</li>
+      <li>There must be some reference to memory, I/O, and files — directly or indirectly</li>
+      <li>The tables must be accessible by the OS and are subject to memory management</li>
+      <li>Without it, the OS cannot context switch — it doesn't know where each process was or what resources it held</li>
+    </ul>
+    <p><strong>PC with only one process: NOT needed.</strong> If only one process exists and it takes over the entire machine, the dispatcher does not need to switch among processes. There is no scheduling, no competing processes, and no context switching — making the process table unnecessary.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Process table = needed whenever multiple processes exist (need to switch)</strong><br>
+    Single process + entire machine = no process table needed (nothing to manage or switch to)<br>
+    Analogy: sign-in sheet needed in a shared office; not needed if you're the only person there.
+  </div>
+</div>
+
+<!-- Q84 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">84</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q11: Within a process there may be one or more threads. Explain what each thread must have as characteristics.</div>
+  <div class="answer">
+    <p>Each thread within a process must have:</p>
+    <ol>
+      <li><strong>A thread execution state</strong> — Running, Ready, or Blocked</li>
+      <li><strong>A saved thread context when not running</strong> — one way to view a thread is as an independent program counter operating within a process</li>
+      <li><strong>An execution stack</strong></li>
+      <li><strong>Some per-thread static storage for local variables</strong></li>
+      <li><strong>Access to the memory and resources of its process, shared with all other threads in that process</strong></li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">S · C · E · S · S</span>
+    State · Context · Execution stack · Static storage · Shared resources<br>
+    "Soldiers Can Execute Stealthy Strikes" — 5 things. The quote about "independent program counter" often appears in the exam.
+  </div>
+</div>
+
+<!-- Q85 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">85</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q12: Shared variables T1=4, T2=3. P1: T2=T1×T2, P2: T1=T2+T1, P3: T2=T1−T2. Find results for orders a)P1P2P3 b)P1P3P2 c)P2P1P3 d)P3P2P1</div>
+  <div class="answer">
+    <div class="code-box">Initial: T1=4, T2=3
+
+a) P1→P2→P3:
+   P1: T2=4×3=12        T1=4,  T2=12
+   P2: T1=12+4=16       T1=16, T2=12
+   P3: T2=16-12=4       ANSWER: T1=16, T2=4
+
+b) P1→P3→P2:
+   P1: T2=4×3=12        T1=4,  T2=12
+   P3: T2=4-12=-8       T1=4,  T2=-8
+   P2: T1=-8+4=-4       ANSWER: T1=-4, T2=-8
+
+c) P2→P1→P3:
+   P2: T1=3+4=7         T1=7,  T2=3
+   P1: T2=7×3=21        T1=7,  T2=21
+   P3: T2=7-21=-14      ANSWER: T1=7, T2=-14
+
+d) P3→P2→P1:
+   P3: T2=4-3=1         T1=4,  T2=1
+   P2: T1=1+4=5         T1=5,  T2=1
+   P1: T2=5×1=5         ANSWER: T1=5, T2=5</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize — The Answers</div>
+    <strong>a) T1=16, T2=4 · b) T1=-4, T2=-8 · c) T1=7, T2=-14 · d) T1=5, T2=5</strong><br>
+    Key: Use updated values every single step. Draw a two-column table (T1 | T2) and fill it after each process runs.
+  </div>
+</div>
+
+<!-- Q86 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">86</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q13: P1, P2, P3 need resource R. P1 has it. P2 and P3 wait. OS alternately grants to P1 and P3, never P2. What is this called?</div>
+  <div class="answer">
+    <p>This situation is called <strong>Starvation</strong>.</p>
+    <p>P2 is ready and able to use the resource, but is perpetually denied access because the OS keeps choosing P1 and P3 alternately. P2 never gets scheduled. This is NOT deadlock (P2 is not waiting for P1 and P3 to release something in a circular dependency) — P2 simply keeps getting skipped.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Answer = STARVATION (one word)</strong><br>
+    P2 CAN run (it's ready) but NEVER gets the chance → starvation. Don't overthink it.
+  </div>
+</div>
+
+<!-- Q87 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">87</span>
+    <span class="q-badge" style="background:#374151">PREV EXAM</span>
+    <span class="hot-tag">🔥 REAL EXAM</span>
+  </div>
+  <div class="q-text">Exam Q14/Q15 (appeared TWICE): When processes interact, two requirements must be satisfied: synchronization and communication. Explain why and give one approach that provides both.</div>
+  <div class="answer">
+    <p><strong>Why synchronization is needed:</strong> Processes need to be synchronized to enforce <strong>mutual exclusion</strong> — ensuring that when one process is in its critical section (accessing shared data), no other process can enter its own critical section simultaneously. Without this, concurrent access corrupts data.</p>
+    <p><strong>Why communication is needed:</strong> Cooperating processes must exchange information — results, signals, or coordination data to work together effectively.</p>
+    <p><strong>One approach that provides both: Message Passing.</strong></p>
+    <p>With message passing, a process sends a message (communication) and the receiver must wait for the message (synchronization). Message passing has the further advantage that it lends itself to implementation in distributed systems as well as in shared-memory multiprocessor and uniprocessor systems.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Sync = mutual exclusion · Communication = exchange info · Both = Message Passing</strong><br>
+    This question appeared TWICE. Know the exact phrases: "mutual exclusion," "exchange information," "message passing," "distributed systems."
+  </div>
+</div>
+
+<!-- Q88 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">88</span>
+    <span class="q-badge" style="background:#374151">EXTRA TOPICS</span>
+    <span class="hot-tag">🔥 LIKELY EXAM</span>
+  </div>
+  <div class="q-text">Throughput — what is it, how do you calculate it, and what does it measure?</div>
+  <div class="answer">
+    <p><strong>Throughput</strong> = the number of processes (jobs) <strong>completed per unit time</strong>. It measures how productive the system is.</p>
+    <div class="code-box">Formula: Throughput = Number of jobs ÷ Total time (in hours)
+
+Example: 4 jobs done in 30 minutes:
+  30 minutes = 30/60 = 0.5 hours
+  Throughput = 4 / 0.5 = 8 jobs/hour
+
+Example: 4 jobs done in 10 minutes:
+  10 minutes = 10/60 = 1/6 hours
+  Throughput = 4 / (1/6) = 4 × 6 = 24 jobs/hour</div>
+    <div class="hot-box">🔥 Exam MCQ: "The number of processes completed per unit time is:" → Throughput. NOT output, NOT efficiency, NOT capacity.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Throughput = jobs ÷ hours (convert minutes to hours first!)</strong><br>
+    Minutes → hours: divide by 60. Then jobs ÷ hours. Simple formula, don't forget the unit conversion.
+  </div>
+</div>
+
+<!-- Q89 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">89</span>
+    <span class="q-badge" style="background:#374151">EXTRA TOPICS</span>
+    <span class="hot-tag">🔥 LIKELY EXAM</span>
+  </div>
+  <div class="q-text">What is the difference between each process having its own Address Space vs threads sharing one?</div>
+  <div class="answer">
+    <span class="label">Process — Each Has Its Own Address Space</span>
+    <p>Every process has a completely <strong>isolated, private address space</strong>. Process A cannot read or write Process B's memory (unless they explicitly set up shared memory). This isolation is enforced by the OS via page tables. This means processes are safe from each other but communication is expensive (must go through OS: pipes, sockets, message queues).</p>
+    <span class="label" style="margin-top:10px;">Threads — Share Their Process's Address Space</span>
+    <p>All threads within the same process share the <strong>same address space</strong>: same code, heap, global variables, and open files. Communication between threads is fast (just read/write shared memory). BUT this sharing requires synchronization (mutexes, semaphores) to prevent race conditions.</p>
+    <div class="hot-box">🔥 Exam MCQ: "In an OS, each process has its own:" → "Address space and global variables." Note: global variables means WITHIN the process — processes don't share globals with other processes. Threads DO share globals with each other within the same process.</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Processes = isolated (separate houses) · Threads = shared (roommates in one apartment)</strong><br>
+    Isolated → safe but slow communication (need to knock on the door). Shared → fast but need to coordinate (don't both use the bathroom at once).
+  </div>
+</div>
+
+<!-- Q90 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">90</span>
+    <span class="q-badge" style="background:#374151">EXTRA TOPICS</span>
+    <span class="hot-tag">🔥 LIKELY EXAM</span>
+  </div>
+  <div class="q-text">Process Creation Steps (when OS creates a new process) — what are the 5 steps?</div>
+  <div class="answer">
+    <ol>
+      <li><strong>Assign a unique Process ID (PID)</strong> — Add a new entry to the process table</li>
+      <li><strong>Allocate space for the process image</strong> — Program code, data, stack, and PCB in main memory (or virtual memory)</li>
+      <li><strong>Initialize the PCB</strong> — Set up PC to first instruction, stack pointer to stack base, state = Ready, priority, etc.</li>
+      <li><strong>Set up appropriate linkages</strong> — Add the new process to the Ready queue (or appropriate scheduling queue)</li>
+      <li><strong>Create or expand other data structures</strong> — E.g., an accounting file for this process's resource usage tracking</li>
+    </ol>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">A · A · I · L · C</span>
+    <strong>A</strong>ssign PID · <strong>A</strong>llocate space · <strong>I</strong>nitialize PCB · <strong>L</strong>inkage to queue · <strong>C</strong>reate data structures<br>
+    "Always Allocate Important Lovely Content"
+  </div>
+</div>
+
+<!-- Q91 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">91</span>
+    <span class="q-badge" style="background:#374151">EXTRA TOPICS</span>
+  </div>
+  <div class="q-text">What is Windows Thread State Model? (6 states)</div>
+  <div class="answer">
+    <p>Windows implements threads as objects and uses 6 thread states (slightly different from the generic 5-state model):</p>
+    <table class="answer-table">
+      <tr><th>State</th><th>Description</th></tr>
+      <tr><td><strong>Ready</strong></td><td>Waiting to be selected by the dispatcher</td></tr>
+      <tr><td><strong>Standby</strong></td><td>Selected by dispatcher; next to run on a specific CPU (preloaded)</td></tr>
+      <tr><td><strong>Running</strong></td><td>Executing on a CPU</td></tr>
+      <tr><td><strong>Waiting</strong></td><td>Waiting for an event (like Blocked)</td></tr>
+      <tr><td><strong>Transition</strong></td><td>Ready to run but kernel stack is paged out to disk</td></tr>
+      <tr><td><strong>Terminated</strong></td><td>Execution complete</td></tr>
+    </table>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Windows 6 thread states: Ready · Standby · Running · Waiting · Transition · Terminated</strong><br>
+    "Really Stupid Rats Wait Too long" — R·S·R·W·T·T<br>
+    Note: Standby = already picked, about to run. Transition = ready but stack on disk.
+  </div>
+</div>
+
+<!-- Q92 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">92</span>
+    <span class="q-badge" style="background:#374151">EXTRA TOPICS</span>
+  </div>
+  <div class="q-text">What are the 4 benefits of using Threads?</div>
+  <div class="answer">
+    <ol>
+      <li><strong>Economy</strong> — Creating and switching between threads is much faster (and cheaper in terms of memory and time) than creating/switching processes. Threads share the process's resources, so no costly duplication.</li>
+      <li><strong>Resource sharing</strong> — Threads share memory and resources of their process automatically. No need for OS-mediated IPC — threads communicate by reading/writing shared memory.</li>
+      <li><strong>Responsiveness</strong> — A multithreaded application can remain responsive even when part of it is blocked. E.g., one thread handles UI, another handles network download.</li>
+      <li><strong>Utilization of multiprocessor architectures</strong> — Threads within a process can run in parallel on different CPUs (with KLT on SMP), giving genuine speedup.</li>
+    </ol>
+    <p><strong>Practical uses of threads:</strong> Foreground/background tasks, asynchronous processing, speed on multi-CPU, modular program structure.</p>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <span class="big-mnemonic">E · R · R · U</span>
+    <strong>E</strong>conomy · <strong>R</strong>esource sharing · <strong>R</strong>esponsiveness · <strong>U</strong>tilization of multiprocessors<br>
+    "Every Rabbit Runs Uphill"
+  </div>
+</div>
+
+<!-- Q93 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">93</span>
+    <span class="q-badge" style="background:#374151">EXTRA TOPICS</span>
+  </div>
+  <div class="q-text">Complete OS Evolution Timeline — Serial → Batch → Uniprogramming → Multiprogramming → Time Sharing: what's the key improvement at each step?</div>
+  <div class="answer">
+    <table class="answer-table">
+      <tr><th>Era</th><th>Key Feature</th><th>Problem Solved</th><th>New Problem</th></tr>
+      <tr><td><strong>Serial Processing</strong></td><td>No OS, manual</td><td>First computers</td><td>Wasted setup time, manual scheduling</td></tr>
+      <tr><td><strong>Simple Batch</strong></td><td>Monitor software, JCL, automatic sequencing</td><td>Manual scheduling waste</td><td>CPU idle during I/O (uniprogramming)</td></tr>
+      <tr><td><strong>Uniprogramming</strong></td><td>One program at a time in batch</td><td>Easier to manage</td><td>CPU idle 70-90% of time waiting for I/O</td></tr>
+      <tr><td><strong>Multiprogramming</strong></td><td>Multiple programs in memory; CPU switches during I/O</td><td>CPU utilization maximized</td><td>Complex memory management; need process isolation</td></tr>
+      <tr><td><strong>Time Sharing</strong></td><td>Interactive; quantum-based switching</td><td>Interactive response, multiple simultaneous users</td><td>Security, fairness between users</td></tr>
+    </table>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Each step solves the previous step's main problem:</strong><br>
+    Serial → Batch (automate scheduling) → Uniprogramming (simpler) → Multiprogramming (CPU utilization) → Time Sharing (interaction)<br>
+    Direction: always toward better CPU use AND better user experience.
+  </div>
+</div>
+
+<!-- Q94 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">94</span>
+    <span class="q-badge" style="background:#374151">EXTRA TOPICS</span>
+    <span class="hot-tag">🔥 LIKELY EXAM</span>
+  </div>
+  <div class="q-text">Process vs Thread — "which is NOT shared by threads" — Complete ownership table</div>
+  <div class="answer">
+    <table class="answer-table">
+      <tr><th>Resource</th><th>Shared by ALL threads of same process?</th><th>Private to each thread?</th></tr>
+      <tr><td>Code (text segment)</td><td>✅ YES — shared</td><td>—</td></tr>
+      <tr><td>Global/static data</td><td>✅ YES — shared</td><td>—</td></tr>
+      <tr><td>Heap (dynamic memory)</td><td>✅ YES — shared</td><td>—</td></tr>
+      <tr><td>Open files</td><td>✅ YES — shared</td><td>—</td></tr>
+      <tr><td>PC (Program Counter)</td><td>❌ NO</td><td>✅ Each thread has its own PC</td></tr>
+      <tr><td>Stack</td><td>❌ NO</td><td>✅ Each thread has its own stack</td></tr>
+      <tr><td>Registers</td><td>❌ NO</td><td>✅ Each thread has its own register set</td></tr>
+      <tr><td>Local variables</td><td>❌ NO</td><td>✅ Stored on thread's own stack</td></tr>
+    </table>
+    <div class="hot-box">🔥 "Which is NOT shared by threads" = PC and Stack are NOT shared. Both are private per thread. Exam trick: the option "Both PC and Stack" is the correct answer (not just one of them).</div>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Memorize</div>
+    <strong>Shared (belongs to process): Code · Heap · Global data · Open files</strong><br>
+    <strong>Private (belongs to thread): PC · Stack · Registers · Local variables</strong><br>
+    "CHGO shared, PSRL private" — Code/Heap/Globals/Open-files vs PC/Stack/Registers/Locals
+  </div>
+</div>
+
+<!-- Q95 -->
+<div class="q-block">
+  <div class="q-num-line">
+    <span class="q-number">95</span>
+    <span class="q-badge" style="background:#374151">MASTER SUMMARY</span>
+    <span class="hot-tag">🔥 READ THIS LAST</span>
+  </div>
+  <div class="q-text">MASTER CHEAT — The 15 most likely exam topics and their one-line answers</div>
+  <div class="answer">
+    <table class="answer-table">
+      <tr><th>#</th><th>Topic</th><th>One-line answer</th></tr>
+      <tr><td>1</td><td>MAR stores</td><td>The ADDRESS of memory location to be read/written</td></tr>
+      <tr><td>2</td><td>PC stores</td><td>Address of the NEXT instruction</td></tr>
+      <tr><td>3</td><td>IR stores</td><td>The CURRENT instruction being executed</td></tr>
+      <tr><td>4</td><td>OF=1 when</td><td>Both operands same sign, result different sign</td></tr>
+      <tr><td>5</td><td>Context switch 7 steps</td><td>S-U-M-S-U-U-R (Save/UpdateOld/Move/Select/UpdateNew/UpdateMem/Restore)</td></tr>
+      <tr><td>6</td><td>PCB is</td><td>A block in memory (not secondary storage)</td></tr>
+      <tr><td>7</td><td>Max Running processes</td><td>= P (number of processors)</td></tr>
+      <tr><td>8</td><td>Max Blocked processes</td><td>= D (number of I/O devices)</td></tr>
+      <tr><td>9</td><td>Suspended processes live</td><td>On disk (virtual memory) — UNBOUNDED</td></tr>
+      <tr><td>10</td><td>Thread vs Process</td><td>Thread = execution unit; Process = resource owner</td></tr>
+      <tr><td>11</td><td>ULT main problem</td><td>One thread blocks → ALL threads block</td></tr>
+      <tr><td>12</td><td>Jacketing does</td><td>Converts blocking system call to non-blocking</td></tr>
+      <tr><td>13</td><td>MISD</td><td>Never implemented</td></tr>
+      <tr><td>14</td><td>Microkernel 3 functions</td><td>Memory mgmt · IPC · I/O &amp; interrupts</td></tr>
+      <tr><td>15</td><td>Starvation</td><td>Process ready but perpetually skipped over (P2 in Q13)</td></tr>
+    </table>
+  </div>
+  <div class="memo">
+    <div class="memo-title">💡 Final Words</div>
+    <strong>You've got this. Every question on this sheet is from your actual course, your actual professor, and your actual previous exams.</strong><br>
+    Review the mnemonics, write them in your notebook, and sleep well the night before.<br>
+    <em>S-U-M-S-U-U-R. C-D-A. P-T-I-H. S-C-E-S-S. P-P-I-F-S-E-A. R-C-M-S-T.</em>
+  </div>
+</div>
+
+<hr class="section-rule">
+
+<div style="text-align:center;padding:30px 0;color:#6b7280;font-size:13px;">
+  CSI 402 — Complete Study Guide · 95 Questions · All Chapters 1–4 + Lectures 8 &amp; 9 · AUST Zahle<br>
+  Prof. Charbel Boustany · Stallings 8th Ed. · Midterm March 27, 2026<br>
+  <strong style="color:#111;">Good luck. You know this material.</strong>
+</div>
+
+</body>
+</html>
